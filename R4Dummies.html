@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title><strong>R</strong> 菜鸟入门</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1><strong>R</strong> 菜鸟入门</h1>
+
+<p>作者：<a href="http://dapengde.com">dapeng</a>
+原载：<a href="http://dapengde.com/r4dummies">晴耕雨讀志</a></p>
+
+<h2>第00篇 缘起</h2>
+
+<p>如果你和当初的 dapeng 一样是个菜鸟，对 <strong>R</strong> 有浓厚的兴趣，只是苦于入不了门，在门口纠结徘徊不忍离去，那么，这个系列的帖子就是写给你的。</p>
+
+<p>以前 dapeng 曾为两个难题烦恼不已，一个是谈恋爱，一个是学习 <strong>R</strong> 。两件事情的共同特点是：在它们面前 dapeng 一直是个菜鸟，任凭花费多少时间去读入门教材，什么 <em>The R Book</em> ， <em>An Introduction to R</em> ，<em>R for Beginners</em> 等等，这扇门就是推不开。越推不开越想推。这种困境一直持续到 dapeng 修了大学里开设的 <em>Introduction to R</em> 课程之后。这门课程是拜罗伊特大学生态地理模拟研究组的 Björn Reineking 教授为全校公开开设的，链接点<a href="http://www.biomod.uni-bayreuth.de/biomod/en/lehre/lehre/lehre_detail.php?id_obj=88980">这里</a>。一个学期下来，受益匪浅。课程结束后， dapeng 特意征求 Reineking 教授的同意把讲义分享给在中国的朋友，他欣然应允。于是 dapeng 打算公开之前整理一下，哪知道一整理，一晃两年过去了。</p>
+
+<p>这两年间， <strong>R</strong> 助 dapeng 完成了博士研究期间全部的数据处理，论文中几乎所有的作图都是 <strong>R</strong> 实现的。可以说，如果没有学习 <strong>R</strong> 和使用 <strong>R</strong> 带来的乐趣，那么 dapeng 的博士研究生活必定会枯燥很多。然而，回顾学习 <strong>R</strong> 的历程，奇怪的是， dapeng 始终没有找到像 Reineking 教授课程那样菜鸟入门级的 <strong>R</strong> 教材。事实上，关于 <strong>R</strong> 的教材不是太少，而是太多，而即便是入门级的，那些标有 <em>Introduction</em> 或 <em>Beginners</em> 字样的，对于 dapeng 这种非统计学非计算机专业的，只在大学公选课修过 <em>普通统计学</em> 的人来说，还是门槛太高。如今快要毕业， dapeng 觉得，是时候把 Reineking 教授课程笔记梳理一下了，希望那些和 dapeng 一样的菜鸟们，碰巧读到这些文字后，学习 <strong>R</strong> 的情形有所不同。</p>
+
+<p>那么，让我们开始第一个问题：<strong>R 是什么？</strong></p>
+
+<p>答案一搜一大堆。菜鸟 dapeng 的解释是，如果你用 Excel 计算过一列数的平均值，或者用 OriginLab 或 SigmaPlot 玩过科技制图，或者用 Matlab 编程建模，那么，<strong>R</strong> 跟它们一样，是用来进行数据处理、作图、编程的软件。</p>
+
+<p>既然一样，别的软件用得好好的，<strong>干嘛要换用 R</strong>？</p>
+
+<p>跟很多理科生一样，dapeng曾用过 Excel（本科论文）和 OriginLab （硕士论文），但博士期间换用了 <strong>R</strong>。见到好的，只要不违法不缺德，自然要换。</p>
+
+<pre><code>思考：你家附近的一家餐厅又贵又脏又难吃，但你不知道有别的餐厅，没选择的情况下习惯了这家。当你得知附近还有一家整洁便宜服务好的，你愿不愿意换？
+</code></pre>
+
+<p>那么， <strong>R 好在哪里？</strong></p>
+
+<p>这个就见仁见智了。 dapeng 是那种贪图便宜的人，看上 <strong>R</strong> 是看上了它的 <strong>免费</strong> 和 <strong>随心所欲</strong> 。你说盗版的 Excel，OriginLab，Matlab 也免费？咳咳，dapeng 也是混过来的，只是如今年岁越大，胆子越小，违法的事儿还是少干吧，尤其是当了爹之后， dapeng 觉得，不想让孩子做的事儿，当爹的最好就别做。当然，不光免费和灵活，还有 <strong>R</strong> 功能的<strong>强大</strong>，<strong>R</strong> 社区的 <strong>友好</strong> 等等，网上搜搜看吧。从 dapeng 的角度说，没有 <strong>R</strong>， dapeng 的博士研究可能完全是另外一个模样。 比如 dapeng 得意洋洋地炫耀一下下面这张 dapeng 博士论文中的插图，当然在老鸟眼里也就是入门级的，但是菜鸟 dapeng 却为此兴奋不已，因为用别人定义好的函数，一个语句不到一分钟就搞定了，太适合 dapeng 这种懒人。</p>
+
+<p><img src="https://qg5vba.blu.livefilestore.com/y1p917Kntc3QPMXx_6P-a2o3v7uYcEp-0qc-R-Gm_AW4tu1rLc8NS7NhGvNmNz6pV6tibLWW1byCJXrwt36Z9X_o29E8pDs-30L/2013-03-03_R_pair.jpg" width="400" /><br><em>图00.1. dapeng 的博士论文插图。对角线上是 7 个变量的直方图和平滑曲线，对角线以左是这 7 个变量两两之间的散点图和 loess 拟合曲线，对角线以右是两两之间的相关系数（正负用数字的颜色区别，相关程度用字体的大小表示）。</em></p>
+
+<pre><code>思考：上图用 Excel 或 OriginLab 或 SigmaPlot 该怎么做？
+</code></pre>
+
+<p>不光是论文作图，<strong>R</strong> 还能很容易做出 3D 动画来演示。下面是 dapeng 博士预答辩演示的一个图：</p>
+
+<p><img src="https://qg5vba.blu.livefilestore.com/y1p5zDsnm8yOLA7CcuLEczOdGVAQ5068VyTnwQW129IV8svjPShrWyy53gf__wbkQfyD0-yD7Nq07erUhHTmfFKUPFV8sZ-fCnR/2013-03-03_R_3d.gif" width="200" /><br><em>图00.2. **R</em>* 做出的 3D 动画。*</p>
+
+<p>不光是枯燥的科技作图和演示，<strong>R</strong> 还可以娱乐。比如可以画一颗立体中国心：</p>
+
+<p><img src="https://qg5vba.blu.livefilestore.com/y1pX7tkvqn66EpNR2ua8bMpb9rfOWlJzZNGQNmgejjl5Tjd18NRyhszayI5j0MHMpMxIKTFA-tnupk6DgoXMK3Y3XWHMGDP3sgx/2013-03-03_R_heart.jpg" width="200" /><br><em>图00.3. R做出的中国心。</em></p>
+
+<p>当然可以很容易地把国旗换成别的，比如 mm 的照片，或者——</p>
+
+<p><img src="https://qg5vba.blu.livefilestore.com/y1pgJN0jEt7Mrk7Pzo4BLhFobahjNI6Rz3orxn7xktaIP8xFubMabfLsGe8HZ97BbrLptwXxL5_qUVn4IFE4QNv7rxc8j1A6ryA/2013-03-03_R_blog.jpg" width="300" /><br><em>图00.4. 晴耕雨讀志在我心。</em></p>
+
+<p>如果你开始对 <strong>R</strong> 有兴趣的话， <strong>R菜鸟入门</strong> 将循着 Reineking 教授讲义的思路，加上 dapeng 的学习心得，从零开始，大概用十几篇短文的篇幅带你跨上那个门槛，把那扇门推开一条缝 —— dapeng 希望自己能坚持写完。最后的目标——成为 <strong>R</strong> 高手——别做梦了。不过，至少，能作出上面几个图来。</p>
+
+<p>我们开始吧。</p>
+
+<h2>第01篇 超级计算器</h2>
+
+<p><em>开胃小菜:</em><br/>
+<em>男人至少要擅长一项运动，一种乐器，一种编程….和拿手的几个小炒。（语出<a href="http://hi.baidu.com/cttfssdtvxbgsyr/item/33a1304c9baa55e6bdf451a6">小鸟学AHK</a>）</em></p>
+
+<p><strong>R</strong> 菜鸟入门三大秘诀：</p>
+
+<ul>
+<li>第一秘诀： <strong>不要害怕</strong> ！学 <strong>R</strong> 非难事，Anyone can R (谁都可以贰).</li>
+<li>第二秘诀： <strong>能用就行</strong> ！只要能完成工作就行，<strong>R</strong> 代码写得漂亮与否并不重要。一个问题如果你有两个解决办法，那就选用你曾用过的那个。时间有富余的话再试另一个。</li>
+<li>第三秘诀： <strong>与人分享</strong> ！跟同学或同事分享 <strong>R</strong> 代码。这就是为啥 dapeng 写这个系列的帖子。</li>
+</ul>
+
+<p>初见 <strong>R</strong>，可以用在线版品尝一下，点<a href="http://www.math.montana.edu/Rweb/">这里</a>或<a href="http://pbil.univ-lyon1.fr/Rweb/">这里</a>，用法在这里不做介绍了，因为 dapeng 还是建议菜鸟从下载安装开始。点击<a href="http://cran.rstudio.com/">这里</a>下载 <strong>R</strong> 程序。<strong>R</strong> 是跨平台的，一般来说，Linux 用户自己善于折腾，不必 dapeng 在这里唧唧歪歪了，因此晴耕雨讀志以 Windows 系统为例作介绍。目前 <strong>R</strong> 的最新版 2.15.3 安装程序只有 47 M，比起几个G的 Matlab 要苗条多了。下载完毕后安装，一路<code>下一步</code>的傻瓜式安装即可。安装完毕之后就可以用了。</p>
+
+<p>不过，初见的 <strong>R</strong> 在裸奔，界面丑陋， dapeng 建议给 <strong>R</strong> 穿上一件衣服，奔时看上去体面一些。能穿的免费衣服很多，人们各有所爱。dapeng 用过 Tinn-R、 RKward、 Vim+插件之后，最后选定了 <strong>Rstudio</strong> (点<a href="http://www.rstudio.com/ide/download/desktop">这里</a>下载，免费正版哦)。选用 Rstudio 有诸多好处，最明显的就是把 <strong>R</strong> 常用的界面整合到了一起。 看吧，华丽丽的就像 Matlab ，默认四个子窗口：左上窗输入代码，左下窗看结果，右上窗显示变量值，右下窗显示作图和帮助：</p>
+
+<p><img src="https://qg5vba.blu.livefilestore.com/y1pnnAG1HW9E4_zC1mIhqsC-kiSuRYaTeuY9vx_gdBzkNPwIFFwlA6kH2PhRr7oLOEEI5YJ629cZw25gxOEvPgc2xr1ktsXyuUV/2013-03-04_R_rstudio.png" width="600" /><br><em>图01.1. Rstudio 工作窗口。图片来自 Rstudio 官网，中文解释是 dapeng 加的。</em></p>
+
+<p>Rstudio 还有很多好处，比如本文就是用 Rstudio 的 markdown 下写成的。下文均以 Rstudio 来示范 <strong>R</strong> 的使用。下载安装 Rstudio ，运行，然后选择菜单 <em>File - New - R script</em> ，或按快捷键 ctrl+shift+n，会新建一个 <strong>R</strong> 文件。好的，现在正式开始  <strong>R</strong>  之旅。</p>
+
+<p><strong>R</strong>  最简单的功能，是用作计算器。先在左上窗口输入以下代码，然后按窗口上方的运行（Run）按钮，或按快捷键 ctrl+回车，就会运行光标所在行的整行代码：</p>
+
+<pre><code class="r">3 * (2 + 2)
+</code></pre>
+
+<pre><code>## [1] 12
+</code></pre>
+
+<p>上面第一行是输入的代码示例，第二行用两个 <code>#</code> 号开头的是 Rstudio 左下窗显示的运行结果。如不另作说明，下文都用这种格式来区分代码和运行结果（谢谢谢易辉的 knitr！）。先不用管 # 号后面的 [1] 是什么。 <strong>R</strong> 的数学基本运算符有 加 <code>+</code>， 减 <code>-</code>，乘 <code>*</code>，除 <code>/</code>，乘方 <code>^</code>，整除的商 <code>%/%</code>，整除的余数 <code>%%</code>。</p>
+
+<pre><code>练习 01.1：计算365除以7得到的整除商和余数。
+</code></pre>
+
+<p>下面，我们开个平方。输入并运行</p>
+
+<pre><code class="r">sqrt(9)  # 开平方
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>这里，<code>sqrt</code> 是开平方的函数，被开方的数必须放在圆括号里，这是 <strong>R</strong> 语法的基本规则之一。<code>#</code> 号后面一直到这一行的末尾是注释，注释部分不会被运行，这样是为了方便理解这句代码的用途。为了节省篇幅，下文尽量在代码中用注释的方式来说明。</p>
+
+<p>有人读到这里可能会被吓住了：<code>sqrt</code>，开玩笑，我怎么记得住啊！注意 <strong>R</strong> 入门第一秘诀： <strong>不要被 R 吓住！</strong> 试试只输入 <code>s</code>，然后按 tab 键，就会出现贴心的提示，所有以 <code>s</code> 打头的函数都列在里边了，用鼠标或箭头键选取就行了。在 <code>s</code> 后面再接着输入 <code>q</code> 试试。</p>
+
+<p>其实，常用的函数就那么几个，用几次就不需要贴心提示了。而且函数名称都很好记，<code>sqrt</code> 就是 <strong>sq</strong>ure <strong>r</strong>oo<strong>t</strong> 的缩写，你不是恰好想练英文吗。实在记不住，那就用基本运算符来求乘方好了， <code>9 ^ 0.5</code> 即可。将来你甚至可以把 <code>sqrt</code> 改名叫做 <code>kaipingfang</code>。条条道路通罗马， <strong>R</strong> 很灵活的。</p>
+
+<p>常用函数都可以顾名思义：四舍五入 <code>round()</code>， 截取整数 <code>trunc()</code>， 开平方 <code>sqrt()</code>，求绝对值 <code>abs()</code>，指数函数 <code>exp()</code>，自然对数函数 <code>log()</code>，以 10 为底的对数函数 <code>log10()</code>，三角函数 <code>sin() cos() tan() asin() acos() atan()</code>。</p>
+
+<pre><code>练习 01.2：大牛 Knuth 有个趣闻：他创建的 TEX 版本号趋近于圆周率 pi，他创建的 Metafont 版本号趋近于自然对数的底 e。pi 和 e 的值是多少？
+</code></pre>
+
+<p><strong>R</strong>  中 <code>pi</code> 的值已经定义好了，只要输入并运行</p>
+
+<pre><code class="r">pi
+</code></pre>
+
+<pre><code>## [1] 3.142
+</code></pre>
+
+<p>怎么只有这几位？精确度不够高啊。要提高精确度，需要</p>
+
+<pre><code class="r">options(digits = 22)  # 最大支持 22 位
+pi
+</code></pre>
+
+<pre><code>## [1] 3.141592653589793115998
+</code></pre>
+
+<pre><code class="r">exp(1)  # 计算 e
+</code></pre>
+
+<pre><code>## [1] 2.718281828459045090796
+</code></pre>
+
+<pre><code class="r">e &lt;- exp(1)  # 把 exp(1) 的值保存到一个变量 e 里，方便以后调用：
+</code></pre>
+
+<p>其中，<code>&lt;-</code> 是个箭头，表示把右边的值赋给左边，Rtudio 中输入箭头的快捷键是 alt + _ 。也可以用等号 <code>=</code>。箭头的灵活之处在于，还可以把左边的值赋给右边：</p>
+
+<pre><code>exp(1) -&gt; e
+</code></pre>
+
+<p>好了，以后可以用e来代表自然对数的底了。查看 e 的值，可以看 Rstudio 的右上窗，也可以在代码窗口输入变量名 <code>e</code>，然后 ctrl + 回车，</p>
+
+<pre><code class="r">e
+</code></pre>
+
+<pre><code>## [1] 2.718281828459045090796
+</code></pre>
+
+<p>就会在结果窗口出现 e 的值。e 可以用来做后续计算，比如：</p>
+
+<pre><code class="r">round(e)^2
+</code></pre>
+
+<pre><code>## [1] 9
+</code></pre>
+
+<p>注意， <strong>R</strong> 中大小写字母是有区别的，<code>E</code> 和 <code>e</code> 是不同的两个变量名。这叫做“大小写敏感”。</p>
+
+<p>变量名的约定：</p>
+
+<p>变量可以</p>
+
+<ul>
+<li>是一个或多个字母，如 <code>e, x, mydata</code>；</li>
+<li>也可以包括数字，如 <code>a1, a2</code>; </li>
+<li>可以包括句点和下划线，如 <code>temperature_air, humidity.max</code>。<br/></li>
+</ul>
+
+<p>但是，</p>
+
+<ul>
+<li>不可以包含空格，如不能是 <code>my data</code>；</li>
+<li>不可以用数字或小数开头，如不能是 <code>2x</code>，也不能是<code>.3y</code>；</li>
+<li>不可以是R的内置变量。这个不必担心，遇见的时候 <strong>R</strong> 自动发警告。</li>
+</ul>
+
+<p>菜鸟只要注意 <strong>变量名不要加空格</strong> ，就不会犯大错。</p>
+
+<p>一个变量名可以存储很多数据。比如说，拜罗伊特月降水量从一月到十二月依次是：61, 45, 55, 46, 56, 79, 86, 57, 56, 56, 57, 71 mm。可以把这十二个数据赋值给一个变量 x，称为向量：</p>
+
+<pre><code class="r">options(digits = 3)  # 精确位数太多了，还是调回初始值 3 吧。
+x &lt;- c(61, 45, 55, 46, 56, 79, 86, 57, 56, 56, 57, 71)  # 拜罗伊特月降水量
+x
+</code></pre>
+
+<pre><code>##  [1] 61 45 55 46 56 79 86 57 56 56 57 71
+</code></pre>
+
+<pre><code class="r">x[4]  # 四月的降水量。方括号中的 4 表示调用 x 中的第四个数值。
+</code></pre>
+
+<pre><code>## [1] 46
+</code></pre>
+
+<pre><code>练习 01.3：2003 年 8 月北京城区测得的 PM2.5 的质量浓度日变化（数据来源：Chan et al., 2005. Atmospheric Environment 39, no. 28 : 5113-5124）, 从 0 时到 23 时 依次是97, 80, 64, 91, 87, 100, 128, 144, 150, 150, 150, 106, 78, 68, 62, 46, 55, 68, 84, 92, 95, 108, 128, 138 微克每立方米（十年前就超标了啊！）。计算 PM2.5 早高峰（6时到10时）时段占全天的比例。
+</code></pre>
+
+<p><strong>R</strong> 支持向量运算。试试输入：</p>
+
+<pre><code class="r">x + 100
+</code></pre>
+
+<pre><code>##  [1] 161 145 155 146 156 179 186 157 156 156 157 171
+</code></pre>
+
+<p>x 里的每一个数都加上了 100 。这就是向量运算的好处：简单的代码，避免逐个计算。</p>
+
+<p>下面，让我们作出第一个图形来：拜罗伊特降水量的季节变化。敲7个键就行了：</p>
+
+<pre><code class="r">plot(x)  # 作图
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-9"/> </p>
+
+<p>是不是很简单？是不是很激动？懒人都喜欢简单的。</p>
+
+<p>再进一步，我们来做统计运算，看看拜罗伊特每月降水量的平均值是多少。</p>
+
+<pre><code class="r">(x[1] + x[2] + x[3] + x[4] + x[5] + x[6] + x[7] + x[8] + x[9] + x[10] + x[11] + 
+    x[12])/12  # 计算平均值
+</code></pre>
+
+<pre><code>## [1] 60.4
+</code></pre>
+
+<pre><code class="r">sum(x)/length(x)  # 计算平均值的简化方法。sum() 是求和函数，length() 给出向量长度。
+</code></pre>
+
+<pre><code>## [1] 60.4
+</code></pre>
+
+<pre><code class="r">mean(x)  # 进一步简化。平均值函数。
+</code></pre>
+
+<pre><code>## [1] 60.4
+</code></pre>
+
+<p>常用统计函数：求和 <code>sum()</code>，平均值 <code>mean()</code>，最大值 <code>max()</code>，最小值 <code>min()</code>，范围 <code>range()</code>，中位数 <code>median()</code>，标准差 <code>sd()</code>，方差 <code>var()</code>。 </p>
+
+<pre><code>练习 01.4：使用练习 01.3 中所用的数据，做出北京 PM2.5 的日变化图。计算 PM2.5 出现的最大值、最小值、平均值。最大值出现在几点钟？
+</code></pre>
+
+<p>最后，请在Rstudio菜单栏点击 *File-Save*，或按快捷键 ctrl+s，把刚才输入的代码保存到一个文件里，下一节接着用。</p>
+
+<p>好啦，以上就是 <strong>R</strong> 的基本操作和运算、作图、统计分析，你已经掌握了！ <strong>R</strong> 就差不多学完啦！喝一杯庆祝一下吧。</p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>安装和运行</td>
+<td><code>cran, rstudio</code></td>
+</tr>
+<tr>
+<td>数学基本运算符</td>
+<td><code>+ - * / ^ %/% %%</code></td>
+</tr>
+<tr>
+<td>常用函数</td>
+<td><code>round() trunc() sqrt() abs() exp() log() log10() sin() asin()</code></td>
+</tr>
+<tr>
+<td>赋值</td>
+<td><code>&lt;- = -&gt;</code></td>
+</tr>
+<tr>
+<td>作图</td>
+<td><code>plot()</code></td>
+</tr>
+<tr>
+<td>常用统计函数</td>
+<td><code>sum() mean() max() min() range() median() sd()var()</code></td>
+</tr>
+<tr>
+<td>其他</td>
+<td>R 菜鸟们，请早高峰时注意健康</td>
+</tr>
+</tbody></table>
+
+<h2>第02篇 数据</h2>
+
+<p>在第 01 篇里，我们学会了用 <strong>R</strong> 进行一般的数学运算和统计计算，并且做出了两张图：拜罗伊特降水的季节变化图，北京的 PM2.5 日变化图。很好，只是，这些数据总不能一个一个敲到代码里吧。要是处理保存在其他文件里的大量数据呢？本篇就解决这个问题。</p>
+
+<p><em>开胃小菜： 在 Rstudio 左下窗口输入代码 demo(graphics)，然后按回车，再回车，再回车，再回车……</em></p>
+
+<p>点击<a href="http://dapengde.com/wp-content/uploads/2013/03/dapengde_DummyR_PM25.csv">这里</a>下载一个数据文件，保存到一个文件夹里，比如 <em>c:\R\data</em> 文件夹（为避免不必要的麻烦，文件夹名称中都不要带空格和中文字符），我们看看如何对其中的数据进行操作。</p>
+
+<p>首先，我们要告诉 <strong>R</strong> 数据在哪里。不习惯命令行的用户，可以这样获取这个文件的路径：</p>
+
+<pre><code>mydata1 &lt;- file.choose() # 在弹出的窗口中选择文件，其路径存储到mydata里。
+mydata1
+</code></pre>
+
+<p>这个文件的文件名叫做 <em>dapengde_DummyR_PM25.csv</em> 。鼠标选择文件比较麻烦，为了下次再使用这个代码的时候不必再点一次，一般都是直接输入文件路径：</p>
+
+<pre><code class="r">mydata2 &lt;- &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;  # 路径要用引号(单双都行)，表示这是一个字符串。
+mydata2
+</code></pre>
+
+<pre><code>## [1] &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;
+</code></pre>
+
+<p>注意，文件路径中的斜线<code>\</code>本来是一个，但是在 <strong>R</strong> 代码中必须改成两个（ <strong>切记切记！</strong> ），或改成一个反斜线<code>/</code>，其中自有道理，暂时不必深究。</p>
+
+<p>我们先在文件浏览器中双击打开这个文件看看，这是个 csv 文件，用记事本或 Excel 就可以打开，或者在 Rstudio 代码窗口输入</p>
+
+<pre><code>file.show(mydata2) # 查看文件
+</code></pre>
+
+<p>就会用默认程序打开。</p>
+
+<p>这是2003 年 8 月在北京城区的三个高度（8 米，100 米，325 米）测得的 PM2.5 的质量浓度日变化（数据来源：Chan et al., 2005. Atmospheric Environment 39, no. 28 : 5113-5124），共 4 列 25 行。</p>
+
+<p>现在让 <strong>R</strong> 读取文件。如果你喜欢拷贝粘贴的方式，那么可以在 Excel 选中数据区，拷贝，然后在 <strong>R</strong> 中这样读取其中的数据：</p>
+
+<pre><code>pm1 &lt;- read.table(file = &quot;clipboard&quot;, header = TRUE) # 读取剪切板里的数据，保存到 pm1 这个数据框变量里。header 表示数据的第一行为列名称。
+</code></pre>
+
+<p>Rstudio 右上窗就出现了 <code>pm1</code> 的信息，可以单击看内容，也可以用输入代码查看：</p>
+
+<pre><code>pm1
+</code></pre>
+
+<p>&#39;read.table&#39; 用来读取数据表格。看起来也太复杂了吧？怎么记得住？对，一般人都记不住，忘了就随手查查帮助，输入并运行：</p>
+
+<pre><code class="r">?read.table
+</code></pre>
+
+<p>Rstudio此时会在右下窗显示帮助信息，有详细的解释和实例。好好读读吧，以后你会发现， <strong>问号+函数名</strong> 是会经常用的命令。</p>
+
+<p><strong>R</strong> 菜鸟入门三大法宝：</p>
+
+<ul>
+<li>第一法宝： <strong>问号</strong> ！问号+函数名，简直就是身边的诸葛亮，随时方便地查看帮助文档。</li>
+<li>第二法宝： <strong>google</strong> 和 <strong>wiki</strong> ！大事不决问维基 ，小事不决问谷歌。</li>
+<li>第三法宝： <strong>论坛</strong> ！内事不决问张昭（中文论坛，如<a href="http://cos.name/cn/">这里</a>），外事不决问周瑜（英文论坛，如<a href="http://r.789695.n4.nabble.com/">这里</a>）。</li>
+</ul>
+
+<p>用拷贝粘贴的方式读取数据，优点是灵活，适合临时用一下。更多情况下，是直接按指定的路径去读文件：</p>
+
+<pre><code class="r">pm2 &lt;- read.table(file = mydata2, header = TRUE, sep = &quot;,&quot;)  # 读取逗号分隔的数据。sep 表示数据列的分隔符。
+pm &lt;- read.csv(file = mydata2)  # 与上一个命令等同，专门用来读逗号分隔的文件。
+</code></pre>
+
+<p>你要问 &#39;read.csv&#39;是怎么回事？请试试你的第一法宝。</p>
+
+<p>数据画个图看起来更直观：</p>
+
+<pre><code class="r">plot(pm)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-13"/> </p>
+
+<p>任意两列的散点图就这么容易地做出来了。如果你有十列八列的，就会发现这是多么省事啊！懒人的福音啊！dapeng 一般在读入数据文件后的第一件事就是<code>plot</code>一下，对数据有个整体的感觉。第二件事一般是看看这个文件的总结报告</p>
+
+<pre><code class="r">summary(pm)
+</code></pre>
+
+<pre><code>##       time             h8             h100            h325      
+##  Min.   : 0.00   Min.   : 46.0   Min.   : 32.0   Min.   : 30.0  
+##  1st Qu.: 5.75   1st Qu.: 75.5   1st Qu.: 48.0   1st Qu.: 42.8  
+##  Median :11.50   Median : 93.5   Median : 67.5   Median : 54.5  
+##  Mean   :11.50   Mean   : 98.7   Mean   : 72.1   Mean   : 65.5  
+##  3rd Qu.:17.25   3rd Qu.:128.0   3rd Qu.:100.0   3rd Qu.: 88.5  
+##  Max.   :23.00   Max.   :150.0   Max.   :123.0   Max.   :126.0
+</code></pre>
+
+<p>这下可省事儿了，上一节我们用的最大值、最小值、中位数、平均值函数，用<code>summary</code>这一条命令就全部搞定，顺便还附送了四分位数（<code>1st Qu.， 3rd Qu.</code>）。啥是四分位数？试试你的第二法宝。</p>
+
+<p>怎么选取 <code>pm</code> 中的指定数值呢，比如说，9 点钟 8 米高处的PM2.5浓度？还记得上一节我们是如何选取 4 月的降水量吗？对，<code>x[4]</code>。类似地：</p>
+
+<pre><code class="r">pm[9, 2]  # 第 9 行, 第 2 列。
+</code></pre>
+
+<pre><code>## [1] 150
+</code></pre>
+
+<p>要选取多个行呢？若记得用<code>c()</code>生成一个向量，那就好办了，比如选取偶数行，即 0、2、4、&hellip;、22 点钟8 米处的 PM2.5 浓度：</p>
+
+<pre><code class="r">pm[c(0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22), 2]
+</code></pre>
+
+<pre><code>##  [1]  80  91 100 144 150 106  68  46  68  92 108
+</code></pre>
+
+<p>这个 0 到 22 敲起来太麻烦了吧，懒人的办法是用<code>seq()</code>函数生成个数列：</p>
+
+<pre><code class="r">pm[seq(0, 22, 2), 2]
+</code></pre>
+
+<pre><code>##  [1]  80  91 100 144 150 106  68  46  68  92 108
+</code></pre>
+
+<p><code>seq(0, 22, 2)</code> 表示以 0 为起点，22 为终点，间隔（即步长）为 2 生成一个数列。比如步长是 1 的话，就用<code>seq(2, 22, 1)</code>。当然，更懒的做法是：</p>
+
+<pre><code class="r">pm[2:22, 2]
+</code></pre>
+
+<pre><code>##  [1]  80  64  91  87 100 128 144 150 150 150 106  78  68  62  46  55  68
+## [18]  84  92  95 108
+</code></pre>
+
+<p>这和上一条指令等效。</p>
+
+<p>选取整行或整列：</p>
+
+<pre><code class="r">pm[, 2]  # 第 2 列全部。
+</code></pre>
+
+<pre><code>##  [1]  97  80  64  91  87 100 128 144 150 150 150 106  78  68  62  46  55
+## [18]  68  84  92  95 108 128 138
+</code></pre>
+
+<pre><code class="r">pm[3, ]  # 第 3 行全部。
+</code></pre>
+
+<pre><code>##   time h8 h100 h325
+## 3    2 64   43   50
+</code></pre>
+
+<p>如果列数太多，总不能老去数第几列吧？别急，也可以这样选取：</p>
+
+<pre><code class="r">pm[, &quot;h8&quot;]
+</code></pre>
+
+<pre><code>##  [1]  97  80  64  91  87 100 128 144 150 150 150 106  78  68  62  46  55
+## [18]  68  84  92  95 108 128 138
+</code></pre>
+
+<p>或者用美元符号</p>
+
+<pre><code class="r">pm$h8
+</code></pre>
+
+<pre><code>##  [1]  97  80  64  91  87 100 128 144 150 150 150 106  78  68  62  46  55
+## [18]  68  84  92  95 108 128 138
+</code></pre>
+
+<p><code>h8</code> 是要选取的列的名称。列名称都有哪些呢？用<code>names()</code>函数：</p>
+
+<pre><code class="r">names(pm)
+</code></pre>
+
+<pre><code>## [1] &quot;time&quot; &quot;h8&quot;   &quot;h100&quot; &quot;h325&quot;
+</code></pre>
+
+<pre><code>练习02.1：请做出 100 米高处的 PM2.5 浓度日变化的散点图。
+练习02.2：请计算 100 米高处 PM2.5 浓度的平均值，最大值，最小值，中值。
+</code></pre>
+
+<p>从此以后，只要把你的数据文件保存成.csv文件，<strong>R</strong> 就可以容易地读取，进行后续处理了！</p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>数据文件存储路径</td>
+<td>不要空格，不要中文，读取时用双斜线。</td>
+</tr>
+<tr>
+<td>读取文件</td>
+<td><code>read.table(), read.csv()</code></td>
+</tr>
+<tr>
+<td>选取单元格</td>
+<td><code>pm[3, 2]，pm[ , 2]，pm[3, ]，pm[,&quot;h8&quot;]，pm$h8</code></td>
+</tr>
+</tbody></table>
+
+<h2>第03篇 画图</h2>
+
+<p>在上两篇中，我们都用到了 <code>plot</code> 命令来作图。如果说 Excel 作图的方法是先按照默认的格式画好之后再让你涂涂改改，那么 <strong>R</strong> 作图的流程更亲切：铺开一张白纸，打好格，画数据点，画坐标轴，加图例。就像用纸笔画图。不像 Excel 那样自作聪明。每一步都清清楚楚掌控在你手里。</p>
+
+<p><em>开胃小菜： 在 Rstudio 左下窗口输入代码 demo(persp)，然后按回车，再回车，再回车，再回车……</em></p>
+
+<p>这里，我们接着上一篇读取的数据 pm，来画一些更漂亮的图片。</p>
+
+<pre><code class="r">pm &lt;- read.csv(file = &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;)
+plot(x = pm$time, y = pm$h8, xlab = &quot;Time&quot;, ylab = &quot;PM2.5&quot;, type = &quot;l&quot;, ylim = c(0, 
+    200))  # 以小时为 x 轴，8 米处的 PM2.5 浓度为 y 轴作图。设定两个坐标的名称。数据点类型为 l 即线型。设定 y 轴范围。
+lines(x = pm$time, y = pm$h100, col = &quot;red&quot;)  # 添加 100 米处 PM2.5 浓度曲线。
+legend(x = 15, y = 180, legend = c(&quot;8 m&quot;, &quot;100 m&quot;), col = c(&quot;black&quot;, &quot;red&quot;), 
+    lty = 1)  # 添加图例。
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAADFBMVEX///8AAAD/AAD///8c9o+TAAAABHRSTlP///8AQCqp9AAAAAlwSFlzAAALEgAACxIB0t1+/AAADf5JREFUeJzt3et64rgSRuFxuP97nicBOkB80KFKqtK31o/du6dBkv22jSFA/3cjyf6bvQCaE/CiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KL1wG8UOUf4jvuSd8CLBrxo/fCHDxnAR64bfvv4tXhomhrwogEvGo/xonFVLxrwonGqF42LO9Ec4At/DEBT44gXjcd40biqFw140UxO9fsDAR85k4u7b3rgc2V0Vb8Bnyyrp3M7l/XAR87gMf5oIOAjx1W9aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMD7N/zL5osWdf7HwBtkvyOATxHwogEvGvCiAS8a8KIBLxrwogEvGvCi1e2IkhdkgU9R1Y7YSu4AfIoa4bf7N4bu3Rv4FL3siOsftr3AP9h39iPwKWp8jN9uhyd+4FPUfKoHPnfAiwa8aDzGi8Yrd6IBLxrwogEvGvCiVe6I5wu228svfSMez3IY8AbVPp173mfj6VzuKl/A2Yd/+1kd8Cl62RFf+/29+V/415/VAZ+ilsf4nSP+5XfApwh40YAXDXjRTJ7HA58vXrkTDXjRgBcNeNGAFw140YAXbVH4w+9aBP7RmvDbx6/FQ+u05leaAp8z4EXjMV40rupFA140k8d4TvX5soA/eG8A8JFzgDd8smnekKfIKeqH3/Ic8SWq8Vbtk8HF3eb3nVy2FS0o3Kqd0rmqLz2JB1u2VzLwxauJtWy3ROArrtkiLdsxDfiapQRatmcGV/VHT4Pi7MG6lcRZt2cGP6RpHHpYtU/No6zbN4unc21Dj6p6GUHW7dzqj/ENr8SFWLd7i8O3rCHCuv1bG75tCQEW7h/wVvdK1tLwjSuYv/ABrQzfuoDpCx8R8JZ3TNTC8O3zz175iIA3vWee1oXvmB74xPA9swMvCr+k/Hb628/SwvdNviD85yYtCt8593rwf7YIeIe7x6v6bTJJ4bunXky+/s3vwK/Q3tYsCd8/81LwuxuzIrzBxCvB728L8F5DROlgUxaEN5l3GfnGt8ImhLeZdhX41je/A5+7481YDt5o1jXgT7YCeOdxZna2DavBm026APzpJiwGbzdnfvjzLQDefaRJXWzAWvCGU2aHv1o/8CPGmpAUvOmMueEvVw/8kMGGB3yMwUZ3vfiV4I0nzCwPfJzhRlawdOBHDTcyLXjr+fLCl6xcHf7ry3jACGnBt7l/0x/hZ4UvWjfwP7/s2gPvOL9dLdO9cO/YA+84v1k9B/zzdx/4SeHLli0Nv3N+f6PPKQ/8ZbsXdS//MSV84aJXgTdzB/4nQfiX/5wRvnTNwvCHL92klheDNzzgX/8kH3zxinXhT16rBX5h+BP33z9MB1++4DXgbQ/43z8F3ncR3Rkf8GkP+YrlLgFvfsBnPeSBv+rK/XkL4H1X0Rnw905X+7HJK8B7uKeUB/6qEvj7jTLB17hrwhe5328GvPE6DPNyzwZf5Q78xQ2l4b9vs/sPhXcsxLDaeYrdc8mfL7QVfiu4beXQVvkd8AvB/91mPfgK9+8bZ4GvPODL4DdZ+NvXEvA721x2cffzAB/zMd7XPY187QGf/6oe+O8uFgl8tXvLPSZUfcBXwe/fdrtXPbRN3gd8Dvj6A77/iN8+fi0e2qaqSQ4/F3t6p/jn+gb37PClc3x9HX8a+vK+bXcb19VOaId/nMl3bxsevoP8MUDPnUfkBn9/yTbkY/zVSa7T/D5I8HN9k3sx/Pf/xnsB5+Ji1uZYDQ5/ubpe+FvtT2nmwlsc68+hrAbyqNG98DH+7LYzT/WHU9ip32If8tdL64EvmXnGxd3RDKbswJ8P8DvQth2eBIzbncHwHP8cMS58s3vqI35vAnP1W+SfzZY8m2276+PHsmeH8LzH+L8TeLDf4h7yJcvqOuLbztree2tnfKfr78Twh3uk8FTf8pDtvLfGuUc91/cc8DWP8Z3P4633nTx8l/vII9525+1e2ZnO8DpuQPiiJXXCn6EfX/m5wo90jyk/AP7iqr54aMOdt/8M3m78PyOHg+90t3jr1dEQo+EdX1IPB1/4wOsLXz602d4bfMDH+mBF+fXW2R6peSNGZX7w++N4/hAtzCFfRdELv13frnBoo703+oCPAl97AMaBt9l94w/4AOf6hifUp3skIfzBGEvDNz3WRoK32H0TDvjZ8E1zn++R/ufxdUPXjLE/4YwDfq584zsb+uEbq3y9Z++mBa8HPvJ+X9xE+NZ508L/3PLzPHN093XhfdzHw5dvyPOGb/QT4efIN0+aH/6Vfpb7NHgv9wnwpdvydrOzD3F95//W9ynn+o43rAaEL9yBf36qu82GHy7fMd/lDgkLv/eC70T3GfA904WEL9qiqq1eEt7VfQ34IR9uGy3fNVdQ+IKNinbAj4bv+xxSwQ4BvmaSYfB9E5Xsjznw1xsW7kw/9OvrO6cJDH81b7wDfiT8AHfg66YBvnvonr8W7436wophh/wId+Ar54kPX7g7psH3Xfu9thr8kAM+JnxI91HyY9wnwne+svcv4N9KAN/747t7A7+LbAj8IPeQ8EEP+MdUzvIK8N3v0fluMfhR7hHho7qPkB/mPhd+/ybR4T3lVeB3bxMe3k9+nHtA+Ljuv7N5yevA79woA7yT/ED35PCjv1DcWX7Ii/Rlc/n/82Oftwp8wL/N5yA/8oCfD/95syzw9vJD3QfCF36bbuQz/fuE1vJq8O+3q9h6+y+mL5jz9Te28mPdR57qiw75ws03+eelGnqf1FS+a7D6vREA/vWGJVs/C/1n7vffGsr3uZvPFw1+JvrP/B+/N5Mf7T70qr5A/nw5c9F/VvD5H6zkO8Zp2ysh4P/d9MK9YzFWOcn3uLvMGAk+gvvOIkzkmwdpPgkOfQHnUj4jvIV8u7vXlGPh47vvrqL7X9hrvX/PNU8Q+PuNzxYTw/1gGZ3yjXfv2iVjX6s/l0/gfijfQz/DHfjaCn/kUFHbPXuf2oaBv53++/Rh3E9ejGikr7/bl8XLWIHgU7ifnrSa6Mvv9PWoZZbaaa1/Hn9+yB8VyL11EzrvYgdeOO9I+MNCuZ+vpvqgL3SvHLV/YuD/dLGaOvlp7sPfetWwDbHcr+Vr6Itu67ID4sNHc79eULn8PPf48OHcDeUnuo9/l23tdgSEv1xT2/uL2+ZqLTp8RHcr+aL3mRWN1FBw+JjuNvAFN3J8y9Fw+CrLoO4m8iXuRWtpC/i2uuUnu8eGj+s+At5368fDl29QYPdu+dnukeFDu3e+dDvdHfjmeg75+e4z4As3Krh7l/wlvP/Gh4UP795xsg/gHhY+gXuzfAR3A/jDf1u+6x01C8OHcO+HP/70Uw98Cvc2+RjuQeGTuF8tdO80GMR9Dvzlxi0C/3cXBHge92jKY/zV1qVxr5WP4z7lqv5q8xK5153sA7l7wG/b4UngX2cbmMq9Rj6Su81jfPWpXhJ+9g9i37OA3/YHaoRP5l4sH8s9Hnw69zL5knfbD930fvitBf54I9eEn/q+yt0MLu5+HuArH+MPtzKhe4F8PPdJT+cONzOl+9UHKSO6T4M/2NAV4UO6B4NP6t6/8PEbHgo+rXvv0ids+DT4nY1N7N639hkbDrxR7Yuf89XMQeDtv+NleK3Ln7TZ8+B/ttj0i5zm1rgNszZ9Jvwa4P9q2phpe2Ai/Gq1GM77mw+8XdWKM894wBtW6Tj1gQ54w+ok517gAG9Zoi99AN60cs3ZT2iAN634I+Cz3YE3Ls1HwIE3ruQDoQHcgbfu+nOBEdiBt+/iU0Ix2IF36OwzA1HYgXfo+J3jcdiB92j/p46h2IF36s+bDIKxA+/Z73tMwrED71/Q95sALxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCi9cNv96qHpql1w28fvxYPTVNzgN+2w5MAhYkjXjQe40Xjql404EUDXjTgRQNeNOBFA1404EUDXjTgRQNeNE94ipwf/OffA7uhHIcUXuZbwMccEvgMYyZZ5lvAxxwS+AxjJlnmW8DHHBL4DGMmWeZbhvCUKeBFA1404EUDXjTgRQNeNOBFA1404EUzg798y0fTkMZjbs9xHYa0G/MxlsMefckKfrvZv7zs8DfpOazZ0A8cy6U+1uexR18KDG/vfjOHfxnSNG14+3Od/RF/e56VbZeqDe8zpAu86ZC/42nCP4e1Hs4B/u3/GA0KvPVw8eFdziIfBYaXPdX/PlFIAO/0PN56RPtx7Yd8fgwmx/N4ShbwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwoknDP7/f2/s75SImDX/z/x7BsAF/e3xS7fvNzCM+nxwk4O//82T3/7RikIC/vWkDL9IevMPns+MF/G3viF8/4G+c6hXbgeeqnhYOeNGAFw140YAXDXjRgBcNeNGAFw140YAXDXjRgBcNeNGAFw140YAXDXjR/geMtIY49fJU6AAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-23"/> </p>
+
+<pre><code>练习03.1：请用问号查询 plot、lines、legend 的帮助文件。
+</code></pre>
+
+<p>添加图例的位置有多种设置方法。上面的例子是用坐标位置确定的。还可以用内置模板来指定：</p>
+
+<pre><code>legend(&quot;topleft&quot;, legend = c(&quot;8 m&quot;, &quot;100 m&quot;), col = c(&quot;red&quot;, &quot;black&quot;), lty = 1) # 图例添加在左上角。
+legend(locator(1), legend = c(&quot;8 m&quot;, &quot;100 m&quot;), col = c(&quot;red&quot;, &quot;black&quot;), lty = 1) # 用鼠标确定图例的位置。
+</code></pre>
+
+<p>做出的图片出现在 Rtudio 右下窗，可以点击 *Export*，选择保存的格式和路径就可以了。不过，更经常用的是命令行方式：</p>
+
+<pre><code>pdf(file = &quot;c:\\R\\data\output.pdf&quot;) # 打开一张pdf的白纸。
+plot(x = pm$time, y = pm$h8, xlab = &quot;Time&quot;, ylab = &quot;PM2.5 at 8 m&quot;, type = &quot;l&quot;, ylim = c(0, 200)) # 在白纸上画图
+dev.off() # 画完了，把纸张收起来
+</code></pre>
+
+<p>下面，我们让图片复杂一点：</p>
+
+<pre><code>pdf(file = &quot;c:\\R\\data\output2.pdf&quot;, width = 8, height = 5) # 设定纸张大小。
+plot(x = pm$time, y = pm$h8, xlab = &quot;Time&quot;, ylab = &quot;PM2.5 at 8 m&quot;, type = &quot;l&quot;, ylim = c(0, 200), axes=FALSE) # 画图，但坐标轴先空着。
+axis(2) # 在左边画出 y 轴。
+axis(4) # 在右边画出 y 轴。
+axis(1, at = 0 : 23, labels = 0 : 23) # 在下面画出x轴，并在指定位置（at）标出刻度（labels）。
+points(x = pm$time, y = pm$h100, col = &quot;red&quot;, type = &quot;l&quot;) # 增加一条线。
+points(x = pm$time, y = pm$h325, col = &quot;blue&quot;, type = &quot;l&quot;) # 再增加一条线。
+abline(h = c(10, 15 , 25, 35), col = &quot;grey&quot;, lty = 2) # 增加几条水平线(世界卫生组织推荐的健康标准值)。
+legend(&quot;top&quot;, legend = c(&quot;8 m&quot;, &quot;100 m&quot;, &quot;325 m&quot;), col = c(&quot;red&quot;, &quot;black&quot;, &quot;blue&quot;), lty = 1) # 添加图例。
+box() # 画出边框。
+dev.off()
+</code></pre>
+
+<p>散点图以外的图，用其他的命令，例如：</p>
+
+<pre><code class="r">boxplot(pm[, c(&quot;h8&quot;, &quot;h100&quot;, &quot;h325&quot;)], ylim = c(0, 150))
+abline(h = c(10, 15, 25, 35), col = &quot;grey&quot;, lty = 2)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-24"/> </p>
+
+<pre><code>练习03.1：请给上面boxplot做的图添加图例，并保存为pdf。
+</code></pre>
+
+<p><strong>R</strong> 的作图功能超级强大，看看<a href="http://gallery.r-enthusiasts.com">这里</a>有很多例子，包含了源代码。</p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>作图</td>
+<td><code>plot(), boxplot()</code></td>
+</tr>
+<tr>
+<td>图上添加数据点和线</td>
+<td><code>points(), lines(), abline(), box(), axis()</code></td>
+</tr>
+<tr>
+<td>添加图例</td>
+<td><code>legend()</code></td>
+</tr>
+<tr>
+<td>保存图片</td>
+<td><code>pdf()</code></td>
+</tr>
+</tbody></table>
+
+<h2>第04篇 模型</h2>
+
+<p>这一篇，我们试着进行线性拟合，示例所用的数据仍然是前两篇中的北京 PM2.5 质量浓度。</p>
+
+<p><em>开胃小菜： 在 Rstudio 左下窗口输入代码 example(nls)，然后按回车，再回车。</em></p>
+
+<p>经过了前几篇的练习，相信你已经熟悉了 # 号注释的方式。从今往后，我们尽量以这种方式来缩短文字篇幅。</p>
+
+<pre><code class="r">pm &lt;- read.csv(file = &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;)
+m &lt;- lm(pm$h100 ~ pm$h8)  # 线性拟合
+m  # 查看模型，显示斜率和截距。
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = pm$h100 ~ pm$h8)
+## 
+## Coefficients:
+## (Intercept)        pm$h8  
+##     -11.471        0.846
+</code></pre>
+
+<pre><code class="r">summary(m)  # 模型的详细总结报告。
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = pm$h100 ~ pm$h8)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.247  -7.113  -0.397   4.508  27.744 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -11.471      6.013   -1.91     0.07 .  
+## pm$h8          0.847      0.058   14.58  8.6e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 8.94 on 22 degrees of freedom
+## Multiple R-squared: 0.906,   Adjusted R-squared: 0.902 
+## F-statistic:  213 on 1 and 22 DF,  p-value: 8.64e-13
+</code></pre>
+
+<pre><code class="r"># 下面对拟合结果作图。
+par(mfrow = c(2, 2))  # 把一张作图纸上分成两行两列。par() 在作图时很有用，请查看帮助。
+plot(m)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAElBMVEX///8AAAB7fXu9vr3/AAD////V1MQaAAAABnRSTlP//////wCzv6S/AAAACXBIWXMAAAsSAAALEgHS3X78AAAYWElEQVR4nO2di4KrKAyGhznl/V95d6ogKJcEAwSSf+e0W4UgfBIuov5YlUj9zD4A1RwpeKFS8EKl4IVKwQuVghcqBS9UCl6oFLxQKXihUvBCpeCFSsELlYIXKgUvVApeqBS8UCl4oVLwQqXghUrBC5WCFyoFL1QKXqgUvFApeKFS8EKl4IVKwQuVghcqBS9UCl6oFLxQKXih6gPefPXcHH09tudNfYOYe8BSNF4ywWct1DfLwcZEOVKoE/jgM7e3tCG5b2Xw30MFgjdh0OgHpXqDP0/Y4+vY4Aia2/YgUnCi+y/nRbzFlcA/Mvz9z/hTwlyAo0oDcxUt6gze3L/OvKa2W18trnIKS8DcoywI3p/Wwb+oNFYH79r4KEvPM+HaGHr0+Kc39CiklcCnj/5RDDb+XA+8dfXXcTNxlgPPZ/z/ubi3n+7L1XMTuIxF5N1YBvyVp+vzsYlWHV39jU3qlH84BOvA21umozrzNM5cFfB3V2/CMujUmRkAPsrZc0O0/RYv2ri2q7eJvs2zGKy9Za1bPif06k305cvB99WCCDYsDeP6wb4R6XLsPXQvj6erD5zZN8xFfqkar2IvBS9UCl6oFLxQKXihwoM3y4mutGbnBK9sVhrAvym5GaIET2dqjBQ8O1Nj1Ao+5S02yvxMU2PUCD55iWCjzM80NUYKnp2pMVLw7EyNkbbx7EyNEU2vvjY0ZCoFn1Ktxj9Xtm2U+Zmmxqi9jTfaxvcxNUYKnp2pMVqtV+9uQCDpUogC78rMJNkFqrTxibgDMn8tQ6NIThJ4X2PcCrZsSJZz9bfliO+tUYk9+HD5pvuZFkvwV2WnSEwa+HMtqvuZEU/wLqWZbfyaQ9lbma0JnkhtB7z7iEbB52OF4LebtVTwma7E7heoFLw9blZPRluvjb9JwRf3g29S2ijvCh4zbNwo7+LBo3ptG+VdPPhZpsZIwbMzNUYKvrRfXf1LW0ylvfqUFLyCf22LqQAHrK7+Hk+XV/cyNUaN4Hefr55paowUfGm/9urT0XYHDw0DD8ZH2sYThIEH4yOaXv12ixHO/fA8bZT36i1UMlz9eFNj1N7Gb73ubKapMXrRuXvMam2U+e9evSybiXYvlI0yf+1X8Il4Ch5sip10rr4YYN9e/W92j4LPRttgRPOrNb6wN925231EIx58KVb8oojFJq9+/9y8gm+LtfGIRsEnPPoVbVXwrlOn4Iv7t1t65TvzCr64fzvwXgq+EmAj8L/h2L0KHp73JTIfSS/SpOTBS3R3LsA+eb/P1Cn44v5t8v6Yoa238Xu1c5EEgX+oAl7qNWkXYI+LNKkLMtqrZ2eKXMkLcQr+xf62oDxU79ylXb2I5dUbNHO/uevujb16k4rMNfNZCXH1SSl4dqbolF9lA2vj04sRnpFZZr6kzcGXuDd37kS08XNMjRFNr369VShfbQw+26lzau3V42wxVWXNndDJq59SoGShtGZ+mquAjONXBF+r7X9qBJ9fkoQX4sIvsTYFD+EOc/XAeDTgyet/alCSHJWkom4xV58ShynbqHTJ63/CoNu0Y+cOVN0tD/B3I8zBk/ZvqBVxL/krfpdlebn6ev+G21D2OpRiHQJM2S7ZwQGp3rkDgIeZ6ih3Fht3h4w7FgWfUyP4FlP9ZDwjE/w8drW7eiu0Z+sCLJD3k/Svv4ACOxR2nbuR2qNXbw7uyG5GrXMneMpWajPXWOMZ9W/zAvbqDXxsOTPX1QsyKVGDnzf/ihB0HL9E565RkF49poOzGXj+z6tvqe1/AoDHnfVbuXpAmCDoDLVypwcPCcfl3CgfB+uO7fEAphepAsbx1Gc9sjXoeJqsO5z7lqH5fZHshHE8Djy+0wA/UxYH//smWcjMHa7Gfz6fYFNyXhtV4bG5Q/ZGC3s5L73q7+pb2viPg0/Rx8fmjgw8685d09g9VLfO3R/8z5TBHZ2r5wmeptMDcfXtFegT+X12qmaM40Ua82IMF5vJiKpzF8JnM5A7tFTnzrXqpvQcWoS57B7KO2lO+Nym9SCunsjUOx0dbPcxxNWb9LRlcuarfECfQ8jjo1dwGFXwTHr1J4Nvbadw86fNjH6CJDPR/J5j4PPvn7Xlf39hPp96uC7/Pqm0qdQd/PsB3MNmRh58Phqqxl9qqPlvM5xOcZk2/sw+VW3/mszuKYJ/c7fsYfODcf3tnYNiKqu4+lOU3KvgO8xexRQ/H8ApgAcPOq/qnTsG1+M7jYQmzNXnsnI7BeL7a4C2IWdRYLW6P728euSzAdw5T1rd7RzwVf2BQ1TyD8hrJARIYPrTQM5yoObOE7yNBl3FEK9GiG0HnBzRqKsnkzGZzjjdhAAJ+DemSqlcI2mysXtkP7tnNvjDpAkdOfUUUPmAs1V5RBvv52x6iTf4znO8kCnbSb16D75HbT8TyGgC+FQ9Egreufpe3FmBT2DuezmvanzSZdkRFzGZg+8rplO2fujerbpbXuCHX65nDr6rWIEfLYirn9HG/yXas7Z/08juUfCYDFHl3Z1ovbkr+Df724JWzAwqxXHgma23+xOzy7JugVX/6m4Hgh/eZU8cQsfpNgJT3xIa0by71DJiC77VdTyPgCH4YVrP1TeXDx78eFffd+weJZbdM/dFBfkCb68Y6ANmsQKnkxrB9740WaJbq4SUt1CNBT+qtv9pQfB0UQHhRrr6kdy5gn/RI6AFj0h1LXFt419oxbtlzbBOnU8xu2fnmTvQw4/GPBjBnGfX6MKjAc/t0d0VuXKePGV7rq06bn9dBDzrh/VXBQWPM4kI7FI/5mh/Z8xnN7fxKFt8ZMJ7D2vjwjSQ1ye98b2HTAojJA58eJiVNj7X9jbn/TrfjP85ulPnjyW7Z8/OXVRXScDD+zfeWhB6Fndx4C1BjS8brRlkohfgH1H55CqvqG4C5n5J54JufmH42D2UNPCR2g9457xv6+ovzQQ/s7b/iQn4OYOaEeP4446Yx+7Z3JmAn9TtGQDez9LQJUUjBd/X1AE+rvJTO3VOPMA7hziY/ihXT5sUjZiAJ7MwK7miKcNhxuYmVuD5XKHqZooLd1bgGV2hmmlqjBiB37OND8WmultW4MdrMHhO3BU8pal11iApeEpTqTG7E4uxeygFT2fKL7CgM9tPCp7QlMlw51bb/6TgqU2twV3BU5taZZm5gu9ril2nzknBszM1RqTgl9ObkgPk/XdwdlDKZgUPvlI0YwNNqoOkizMR4QgNKvgWKfiGFEkDKfjWcAq+RQq+IUXSQAq+NZyCb5GCV60qBS9UCl6oFLxQKXihUvBCpeCFSsELFSn4zF3icRBjiQJBA9ILniBsqoru8axwg5Tg3fO/C6maMxhBIAMMSC94gtDHZEGPH3aGgAwSgjcgXBewkqGqJf8cggngLTRB2HPwEecR4dwuHXi6ymwhZ8dc8JSuHnP8HOfqr7U+Q1z9LPC1HEbhZoEHBKPt1Q9s42fWeHhqc8BDQlGDl9CrL69ijIMC7YGTBtqrW9RxvFApeKFS8EKl4IVKwQuVghcqBS9UCl6oFLxQKXihUvBCpeCFSsELlYIXKgUvVApeqBS8UA0F79fYmngtyWO5yPBFs6Qy11riXIj7XnPFLESgLJax4IP/2Rj8efyVVYWJDflowX4iTQBvrFuPe65EvRakujV71wk+51aZt4rydX26PP/tiTMXg/d5N8EHcYGMdvU2yNnN7Zsr+/HfYtTtnWD5LyoBey+S5B9FgUyp8e4vqN3WZSiu8aFnWEghwWSGwmxXavztj6pApoIPftoTfNIXXN+LqFh145/3zVmfSFwgk8Cb4M5a32CdP8Lz/WjdVq7xPh82rMZXGx+NAPy9SNEeH4GyQHQcL1QKXqgUvFApeKFS8EKl4IVKwQuVghcqBS9UCl6oFLxQKXihUvBCpeCFSsELlYIXKgUvVApeqBS8UCl4oVLwQqXghUrBC5WCFyoFL1QKXqgUvFApeKFS8EKl4IVKwQuVghcqBS9UCl6oFLxQKXihUvBCpeCFSsELlYIXKgUvVApeqBS8UCl4oVLwQqXghUrBC5WCFyoFL1QKXqgGgE+9Rc8Uft13LfFeEvdGtfvm6OuxPW2K6piK6g/e+I/7xswv6C5WCl4jld1b2gDcR6eB4MPXC0YvIbperRS/ou98XVHwRh++LyK7wJtnPv2LhGwq/+69U+E7mbyFaKcJwkUF06BB4G34+qzo/2z8ZZIBffbZuoDwtWLPw89sDypFUBxRaUQ7YzsmNILWuDb+Or46+HvAuNQ4yrfxcSaSx24e2bzn2oaGzKNkKEpkUK8+KAr/NjXjX6GWBH9/JyNz8NbV3/DVcYljv79Yz/oafXP1/p3UJvj/2MCVGl7j2vjLj93P+CT42Ffa8IujAqcdbkv5+NghWAfehjkPvx41I+ED8BoK3lX1hO9zX+mAi4E3t7zcNiTzf/1MbLzZiOzwdfXOG4W90ci3Ba8VfwaMe/W8wYfZinrv0Vci/zb8eS+N2FrwetLYCFI6c7euXtUBBb+mmjt1TgpeqBS8UCl4ocKDN8uJrrRm5+TQ5wMPm81KA/g3JTdDlOC/n/9IbH3exIVGVvCUpmjAvyIPjb4aeDd1UXRWYGOvLfQwZRH1Nhe9Hn8x8NeUJEVybMEP0JLgqWZoubr6r176+1q9Xwz8VdkpEmMN/q2//5rI71oNvEtp7zb+FAH6rJE1wROJO3giJdEreEpTpK7+EEWlt4kGX8FTmuoA/g8ZDfzYjIJnZ6qnrpNIwU8zhZqLIvL41lf8Anh0XhQ8xtUj56KI/L0z9vkmmbT5Y2z9Sk4kBY8Hj5iLoiR/pJk+mX78KkFo+Sh4XJSGuSg6+MUafwQw0COTAt4k7tRrzjtyLoqqi6/gm2I9q2m/4VwnVcEjfJFM8GE3aBR4gmqvvfry/kQQE3yCTVHrNfoK+Fyv3qTu1NgQfLKZS3XEZ+T9FfvGGm9SuZcCPm9qcBv/ZjZXwVcCcAb/RlXwGVdv9ge/yuRVW7Wvg8+4O/PcvBn4WaYa1IC+GTzKFlMtcVkWKmTFh7TxWXeXHMsupGrnDuvqJ7fxGPI6ji/uX8/bfYBdfQVf3L8eeKgae/VIW0wFOOClXH2oWr0H1fjkcO55QuwIHmeKEXh79vVz+BvBp0d4qMNioG2GcyXh19Vfrh4Yj2/mMyLv1fNUsuZr544gjOXp6mN9wMurFTw0jF0B/FfXYK/xsmxS24FHTEqtlfdjle15Etz7/9diS4Fj2Zmmxsh8m/1PovOn4PGm2Lv6SwH4dI1HPBN1M/ANzdyK4O29x6+du5y322UtwreuP6f2h4I/n8k8uPjawJvUypwVwWd09OrHTGK4gmQGPt3MneUShBm+vJpAPMbxBtWJJFNbescpmqzxO4F/erUGW/WoM7jXOnc5b5dyTru5+pHXpPm18XNMjREj8OMlfByfkd47h2/mtgJPYYup6uAlertr5k5g5t1+iXnXNh7fzO3k6kWDx5raCfxmF2mMe7ff90c9tMCTfs/OnTmnW0EzxDK93Q+wVkBs8dF3lqgb+J1c/X5LrwzG1es4/pUtPopQ6pRtSmXwKUewUeZh+9uC8lAj+KSr3Cjz5/69l15lpODxphT8TMEv7mobn1L5hgq+bTz6khpVqmsJNI7vPJxLn1iNxqaC38nVl8D77a+egZMihaD3tDfP1e8Evv9cPTV4VMqlvULvGxw3gRMX7vn8/rwxrGdJPp/x+KrFTIbp9TSQsSsOOYC/G6lURGRCV3hfsvC5+mSYeNObdfW3acT3ZzQ8OMTVDzzre4K/Irp38VTtYJ8GggQfZQUNHhnhFhzQucs+uhuyLdgLbS2r9bCxYnxzfjwZAHqRBpFIY6SwymPztQb4Md21kp6P/psN/mWz3t3Vk/Tq54JPP+4R4OpxcxhbDecobH33TuJeeMZnvXMnGHymZ4uzNUuV57qSg19IdfBwH80r84CH+Tb26ptMcVNr5w5na7ReP8EZrS1d/VrTlog39DRO4ORNsQZvTPSVDbdeG/+BPqvdCTJjsEje6zKeZWXyaqnFlljkh0R17nDgBz0D543amH8FcPUbrblDunqM5cYjahXatd8lq42PRQ5+zDzNW+SHKjNOPLxdpwKtuXrsYoRXM7OwhAiYz79Ig5kg6EKeulf/4jg/aT1CNJqPD7TSwWkxaRGuHlhMwX1+sNBwkQ/n2jzTcbE0mVL6HHglGPiez7KF4TRHe0NqMwid0bA1dxfSYddxXi29ygZtOIKqURzKemjoiwpQasBGWY/xmggeaBVlthT64TRBrh6aMDyoO5aqya4+oGp8/duks61kHXyXIQ38KkpP8vM6d42JwA+42i2a4epRV1Fmgs/sn3X7GKQ0wP3g4eCRl1Gmuvq0t0s2gdPBYwc+Q1393K7cU220buCPQd+//738v/8/ju9e/0xi2+dz/EPaAnTuiK5QMYP+JxLw4UZ4G4+4we8ImZneai7TMeDjI5y17PKhNldP0cbDOy/Uk1fBEWT0EzizN7YeR925x4ZQvXPX63o8vJ/Wq7QaO3cmNcZ9RsiNIHcFj3H1mer0cOJzrs7loyVmtaKfBf+0jKu3WG+HGMdHp3+H6xGA9DMqXpYtg+fWe8+JfAIHF8F0a8Bh6WdUvDpn8i/do8qHv9exn3+YCX4WcKdG8DZ1WxkpIecKe/YIyob7vmJ0dntXb+Mn3U3SDp7uGTi5kz5rCtG5m93DfTVle5u9Sg552w4riNrxtnFy8HBdRzmp6r8CX7U147wmBN/T20WPa5ggkKtvPuun5Gqtx52xBZ8JAJy2nN2FKYsDeLauPh0guY815JQgrr5TGz9ddfC8rkmTCtK5IzLFTs1TtonIG2Uetv8RlN+au6xae/V8n16NUBU8yxcV0HQKGl090tZr9ekBzZyyfZMSRWKAzh35NWk8xU5jnsng287mWlkArU4A30BxEvi+rr41U+VDglqFtPHErr4lw3NcffqkLzzHFwceXKNQVgnBI9KEhePSC2wDn4yGzxLkdsiWkqJz9d0uVEwX4ICTV55uIdrezgGomj2ncyvgpb6lodEU1tXXjc4CL3X26to/dRw/ZfUR/4cfvVb5gEve7rF1o7wf4A3itNso87X924M3mIZmo8w3mmI9V496UYFo8Hhvxxn8jaOCL+3dJO/GPPNSbeMRQwrWmU9JDPiE9xrbq2czZ3eIHDxTV58anBTBG0M7gdNzQqJFtTYe7e2YgreoYUiHGr8Y+Emm6JVfPJfSD3oCejNXP8vUGBXAW4u5IF20xVSMxvHDq0QZ/BFEL9JATTWDH98IVsFrjR9hiiN4CltMNRp8ct2OOXe5UZchP7b0sWT3/FRDwG0x1WBXf2HObjGJ/+sjQBufjidhXT3a1D//oIvg+5GcCedEz6p+7nDbzsof7DweQUJ3xI3gTSqyggeFMddf/Cgh9z4KcwU2t+B0h6zgx5lKgA9qc9DGu6Y+uLhirgC9D1jBZ6M9G2tMG/+o8S56iPgWMHAFRNI2viXW0+eCxvFRBQ9q8/XUl8sPGBN4ABdpfo1H2mKqZvDP2rdR3gHgfeTWteWT1Q4+6F9vl3et8cVoLa6ekxQ8pSkB4AV37pIxN8q7DucwMTfKu4LHm1rL1Sdmlf/UAH45EZbjV//mZgeoz/ff/8SPv/sztPFtfKVoxgaa4n9a0pwXx4HH1HiShLsGUvDVOAd46z6dFDxei4H/q+vP9yUoeLzWAp+RgseLHcSWOAoeL3YQW+JQg1ctIgUvVApeqBS8UCl4oVLwQqXghUrBCxUp+PBGoWwQwAJiWCBoQCKZaHk0LNFnnHqkIAw+HR+nGokS/P1moWQQSxXIAAMSyaeCSPQWB3SUgeEri7g4oHQIwRsQLkBuIEXrbzFbCDyswnvDQRaRcSDp0IGnq8wWcnasCB4VxwZZ7BCHELxx63WGuPoFwVs7BjwoHdpe/cA2fkHwm9Z4l+revXqDSvRVnDCL9HF0HC9UCl6oFLxQKXihUvBCpeCFSsELlYIXKgUvVApeqBS8UCl4oVLwQqXghUrBC5WCFyoFL1RDwfs1tiZeG/RYLzJiRc0kccnaWPDB/yj4uZoA3r3G2Ppn+YcrUW9OYeCiujFyq2BNkGP3O8hs9xyPdvU2oHpz+8Z/3/72oW7tLY+PIrhv6aYpNd79BbXb+vXHUY0PPcMeOvN6ZjMshSjr3Z3cVPDBT3s//+PTfh/yJvrM1fX++Z0E3jwaNevP+vD8/37u1MRb3725VsIHLyC0j0LpJR3HM9OQ6m4VPD8Ncm8KXqgUvFApeKFS8EKl4IVKwQuVghcqBS9UCl6oFLxQKXihUvBCpeCF6j9tPu25Rb/2XQAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-25"/> </p>
+
+<pre><code class="r"># 作图完毕。 给散点图添加拟合直线。
+par(mfrow = c(1, 1))
+plot(pm$h8, pm$h100, cex = 2, pch = 21, bg = &quot;red&quot;, col = &quot;green&quot;)
+abline(m, col = &quot;purple&quot;, lwd = 3)  # 添加趋势线
+legend(&quot;bottomright&quot;, pch = c(21, NA), lty = c(NA, 1), legend = c(&quot;Data&quot;, &quot;Linear fit&quot;), 
+    pt.bg = &quot;red&quot;, col = c(&quot;green&quot;, &quot;purple&quot;), lwd = c(NA, 2))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-25"/> </p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>线性拟合</td>
+<td><code>lm()</code></td>
+</tr>
+<tr>
+<td>非线性拟合</td>
+<td><code>nls()</code></td>
+</tr>
+<tr>
+<td>作图设置</td>
+<td><code>par()</code></td>
+</tr>
+</tbody></table>
+
+<h2>第05篇 循环</h2>
+
+<p>前两天 dapeng 用 <strong>R</strong> 给师妹做了一张&quot;全国各省 PM10 浓度地图&quot;，以省会城市的 PM10 浓度值给各省涂上颜色，结果师妹说：这个用 ArcGIS 能又快又好地做出来。 dapeng 脑子里立刻涌现出多种说法要细数 <strong>R</strong> 的优势，第一条就是：若是有 20 年的数据，每年做一张图，<strong>R</strong> 菜鸟用简单一个循环就能编程搞定，ArcGIS 该怎么又快又好做出来？若不是资深用户的话，我等菜鸟恐怕得一张一张图点出来吧？这种操作费时费力并且毫无乐趣，就应该交给机器来解决，这是懒人的必备技能。本篇就来说说程序的基本结构之一：循环。</p>
+
+<p><em>开胃小菜</em> <em>男人至少要擅长一项运动,一种乐器,一种编程&hellip;.和拿手的几个小炒. (语出<a href="http://hi.baidu.com/cttfssdtvxbgsyr/item/33a1304c9baa55e6bdf451a6">小鸟学AHK</a>)</em></p>
+
+<p>所谓循环，就是兜圈子，就是一件事情重复操作。先从一个简单例子开始。在第 03 篇中，我们对 8 米和 100 米两个高度处测量的 PM2.5 做了日变化图。若要对三个高度的每一个都做日变化图，不用循环，那么是这样的：</p>
+
+<pre><code>pm &lt;- read.csv(file = &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;)
+par(mfrow=c(1， 3))
+plot(pm[, 1], pm[, 2], cex = 2, type = &quot;l&quot;) # 第一张图
+plot(pm[, 1], pm[, 3], cex = 2, type = &quot;l&quot;) # 第二张图
+plot(pm[, 1], pm[, 4], cex = 2, type = &quot;l&quot;) # 第三张图
+</code></pre>
+
+<p>如果使用循环，是这样的：</p>
+
+<pre><code>par(mfrow=c(1,3))
+for (i in c(2, 3, 4)) plot(pm[, 1], pm[, i], cex = 2, type = &quot;l&quot;) # 让 i 的取值在2, 3, 4这三个数中转一圈，做第 i 张图。
+</code></pre>
+
+<p>这里出现的 <code>for()</code> 就是循环语句。看起来跟不用循环也差不多嘛。是的。但是有一次 dapeng 要给 20 个观测点 一个月的 PM2.5 每天做一张日变化图来，总共要做 600 张，要是不用循环，那恐怕连死的心都有了。话说 dapeng 当年第一次接触计算机程序的时候，就为循环语句兴奋得睡不着觉，那种久旱逢甘露感觉记忆犹新。懒人福音啊！</p>
+
+<p><code>i</code> 转的那个圈，可以是数字，也可以是别的，比如字符串：</p>
+
+<pre><code>for (i in c(&quot;Good&quot;, &quot;Morning&quot;, &quot;!&quot;)) print(i)
+</code></pre>
+
+<pre><code>练习05.1 用`print()` 指令打印 1 到 100 之间的奇数。
+</code></pre>
+
+<p><strong>R</strong> 中常用的循环语句，除了 <code>for()</code> 之外，还有<code>while()</code> 和 <code>until()</code>，相互之间可以换用。</p>
+
+<p>下面我们用循环语句来做一个指数增长模型，再体会一下循环的意义。</p>
+
+<p>指数增长模型，也叫马尔萨斯增长模型，一个函数的增长率与其函数值成比例。举个例子吧，我们用 <code>N1</code> 表示 2008 年世界总人口 66.8 亿，r 表示人口自然增长率，为简化起见假定 <code>r</code> 是个常数 0.011，那么在下一年的总人口就是 <code>N2 = N1 + r * N1</code>。我们想看看今后一百年的人口总数，可以这样做：</p>
+
+<pre><code class="r"># 方法 1：每年分别计算，分别存储人口数。
+N1 &lt;- 66.8
+r &lt;- 0.011
+N2 &lt;- N1 + r * N1
+N3 &lt;- N2 + r * N2  # 如此一直写到 N100。
+
+# 方法 2：每年分别计算，用一个向量来存储各年人口总数。
+N &lt;- numeric(100)
+N[1] &lt;- 66.8
+N[2] &lt;- N[1] + r * N[1]
+N[3] &lt;- N[2] + r * N[2]  # 如此一直写到 N[100]。
+
+# 方法 3： 用循环语句计算，用一个向量来存储各年人口数。
+N &lt;- numeric(100)
+N[1] &lt;- 66.8
+for (t in 1:99) N[t + 1] &lt;- N[t] + r * N[t]  # 不必一直写到N100。
+plot(N)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-26"/> </p>
+
+<p>循环的好处一览无余！</p>
+
+<p>上面的例子里，每次重复的操作只有一条指令，所以直接写在 for () 后面就可以了。实际遇到的情况往往是重复一组指令，比如 每次给 N[t+1] 赋值时想显示一下当年人口和年份，那么可以用花括号把一组指令组合起来：</p>
+
+<pre><code>for(t in 1:99) 
+{
+N[t+1] &lt;- N[t] + r * N[t]
+print(t + 2007)
+print(N[t+1])
+}
+</code></pre>
+
+<p>到目前为止，<strong>R</strong> 中所有的括号都闪亮登场了一遍，这里小结一下它们的角色：</p>
+
+<ul>
+<li>圆括号 ()。用作命令和数学表达式，如 <code>mean(x), (1 + 2) * 3</code>。</li>
+<li>方括号 []。用作下标，调用向量中的某个元素，如<code>x[3], pm[2,6]</code>。</li>
+<li>花括号 {}。用作编程，把一组指令组合在一起，如<code>for () {}</code>。</li>
+</ul>
+
+<pre><code>练习05.2 生成一个矩阵 m （方法见 matrix 函数的帮助信息），使得 m[i,j] = x[i] * y[j]， 其中 x &lt;- c(2, 3, 5)， y &lt;- c(1, 2, 3, 4)。
+</code></pre>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>循环语句</td>
+<td><code>for(), while(), until()</code></td>
+</tr>
+<tr>
+<td>括号的用法</td>
+<td><code>() [] {}</code></td>
+</tr>
+</tbody></table>
+
+<h2>第06篇 分支</h2>
+
+<p>顺序、循环和分支是编程的三大结构。上一篇说了循环，这一篇说说分支。</p>
+
+<p>啥是分支？分支就是你到了一个路口，向左向右向前看，要选择到底往哪个方向走。每时每刻我们都要做出选择：渴了，是喝咖啡还是茶？见了人，是上去打招呼还是悄悄躲开？这篇帖子，是关掉还是继续读下去？其实仔细想想，岂止是编程，那三大结构简直就是整个生活的基本结构：日出日落，月圆月缺，年尾年头，这是循环；上学还是就业，单身还是结婚，丁克还是生娃，这是分支；不管是循环还是分支，都嵌入在生老病死的时间轴上，这是顺序。所谓尽人事听天命，想来就是心平气和地接受顺序结构，小心翼翼地制订循环结构，在关键时刻控制好分支结构，就这样度过一生罢。</p>
+
+<p>扯远了。简单来说，分支就是先判断再选择。</p>
+
+<p>先判断。判断要用逻辑运算。我们先来做一套健脑操热热身：</p>
+
+<pre><code class="r">3 &gt; 2  # 3比2大吗？是的。
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">1 &gt; 2  # 1比2大吗？不是的。
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">!(1 &gt; 2)  # 1不比2大吗？呃......
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">3 &gt; 2 &amp; 1 &gt; 2  # 3比2大，并且1比2大吗？不是的。
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">3 &gt; 2 | 1 &gt; 2  # 3比2大，或者1比2大吗？是的。
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">3 &gt; 2 &amp; !(1 &gt; 2)  # 3比2大，并且1不比2大吗？好像是吧......
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<p>好了，热身完毕。包括上面出现的，常用的逻辑运算符有：<code>大于 &gt;， 小于 &lt;， 等于 ==， 小于或等于 &lt;=， 大于或等于 &gt;=， 与 &amp;， 非 !， 或|</code>。</p>
+
+<p>逻辑运算符用在向量上：</p>
+
+<pre><code class="r">x &lt;- 1:3
+x == 2
+</code></pre>
+
+<pre><code>## [1] FALSE  TRUE FALSE
+</code></pre>
+
+<pre><code class="r">x == 2 | x == 3
+</code></pre>
+
+<pre><code>## [1] FALSE  TRUE  TRUE
+</code></pre>
+
+<pre><code class="r">y &lt;- c(4, 1, 2)
+x &gt; y
+</code></pre>
+
+<pre><code>## [1] FALSE  TRUE  TRUE
+</code></pre>
+
+<pre><code class="r">x &gt; y &amp; y &gt; 1
+</code></pre>
+
+<pre><code>## [1] FALSE FALSE  TRUE
+</code></pre>
+
+<pre><code>练习06.1 设 x &lt;- 6:1，y &lt;- c(3, 5, 7)，判断 x 中的每个元素是否在y中出现。
+</code></pre>
+
+<p>上面这个练习可以用循环来完成。不过，由于 <strong>R</strong> 很照顾懒人，所以提供了更方便的方法：</p>
+
+<pre><code class="r">x %in% y
+</code></pre>
+
+<pre><code>## [1]  TRUE  TRUE FALSE
+</code></pre>
+
+<p>结合逻辑判断和下标系统，就可以挑出 x 中哪些元素出现在 y 中，以及出现的位置：</p>
+
+<pre><code class="r">x[x %in% y]
+</code></pre>
+
+<pre><code>## [1] 1 2
+</code></pre>
+
+<pre><code class="r">which(x %in% y)
+</code></pre>
+
+<pre><code>## [1] 1 2
+</code></pre>
+
+<pre><code>练习06.2 从 1:100 中挑出既能被 2 整除，又能被 3 整除的数（提示：判断整除的余数是否为零）。
+</code></pre>
+
+<p>下面，我们玩玩真实的观测数据。练习01.4 曾经提出个问题：PM2.5 一天中的最大值出现在几点钟？当时需要肉眼判断，现在可以交给机器了。</p>
+
+<pre><code class="r">pm &lt;- read.csv(&quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;)
+pm$time[which(pm$h8 == max(pm$h8))]
+</code></pre>
+
+<pre><code>## [1]  8  9 10
+</code></pre>
+
+<pre><code>练习06.3 世界卫生组织制订的 PM2.5 指导标准中最宽松的标准是 24 小时均值 75 微克每立方米。请挑出北京一天内超出此标准的时段。
+</code></pre>
+
+<p>上面讲的是分支两部曲的第一步：判断。下面说说第二步：选择。</p>
+
+<pre><code class="r">x &lt;- 12
+if (x &lt; 99) print(&quot;x is less than 99&quot;)  # 如果()，那么。
+</code></pre>
+
+<pre><code>## [1] &quot;x is less than 99&quot;
+</code></pre>
+
+<pre><code class="r">
+x &lt;- 12
+if (x &lt; 99) {
+    print(&quot;x is less than 99&quot;)
+} else {
+    print(&quot;x is larger than 99&quot;)
+}  # 如果()，那么{}，否则{}。
+</code></pre>
+
+<pre><code>## [1] &quot;x is less than 99&quot;
+</code></pre>
+
+<pre><code class="r">
+x &lt;- 12
+ifelse(x &lt; 99, &quot;small&quot;, &quot;large&quot;)  # 等同于上一个例子，不同的是这里 x 的向量长度可以大于1，比如试试 x &lt;- 98:100。
+</code></pre>
+
+<pre><code>## [1] &quot;small&quot;
+</code></pre>
+
+<p>有了分支语句，就可以在很多地方派上用场了。继续以北京 PM2.5 日变化数据作图，把一天中的最大值重点标出来，然后把达标值用绿色区分出来：</p>
+
+<pre><code class="r">plot(x = pm$time, y = pm$h8, xlab = &quot;Time&quot;, ylab = &quot;PM2.5&quot;, cex = ifelse(pm$h8 == 
+    max(pm$h8), 2, 1), pch = 16, type = &quot;b&quot;, col = ifelse(pm$h8 &gt; 75, &quot;red&quot;, 
+    &quot;darkgreen&quot;))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-33"/> </p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>逻辑运算</td>
+<td>&gt; &lt; == &lt;= &gt;= &amp; !</td>
+</tr>
+<tr>
+<td>分支命令</td>
+<td><code>if () {}, if () {} else {}, ifelse()</code></td>
+</tr>
+</tbody></table>
+
+<h2>第07篇 因子</h2>
+
+<p>前几篇举例子用的 PM2.5 数据来自十年前，这是因为 dapeng 手头碰巧有这么篇论文。今天偶尔发现，网上已经在公布最近国内城市的空气质量数据了，本篇就以北京和郑州两城市最近半个月的 PM2.5 数据举例子(数据来源 <a href="http://www.pm2d5.com/">http://www.pm2d5.com/</a>)。点击<a href="http://dapengde.com/wp-content/uploads/2013/03/dapengde_DummyR_PMBeijing.csv">这里</a>下载北京数据，<a href="http://dapengde.com/wp-content/uploads/2013/03/dapengde_DummyR_PMZhengzhou.csv">这里</a>下载郑州数据，请仍然保存在 <em>c:\R\data\</em> 文件夹下面。</p>
+
+<pre><code class="r">bj &lt;- read.csv(file = &quot;c:\\R\\data\\dapengde_DummyR_PMBeijing.csv&quot;)
+zz &lt;- read.csv(file = &quot;c:\\R\\data\\dapengde_DummyR_PMZhengzhou.csv&quot;)
+bj$city &lt;- &quot;Beijing&quot;
+zz$city &lt;- &quot;Zhengzhou&quot;
+data &lt;- rbind(bj, zz)  # 按行合并数据。
+summary(data)
+</code></pre>
+
+<pre><code>##       date             pm          city          
+##  Min.   : 1.00   Min.   :  5   Length:37         
+##  1st Qu.: 5.00   1st Qu.: 51   Class :character  
+##  Median :10.00   Median : 75   Mode  :character  
+##  Mean   : 9.76   Mean   : 95                     
+##  3rd Qu.:14.00   3rd Qu.:115                     
+##  Max.   :19.00   Max.   :280
+</code></pre>
+
+<pre><code class="r">str(data)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    37 obs. of  3 variables:
+##  $ date: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ pm  : int  5 27 75 22 130 228 220 205 63 35 ...
+##  $ city: chr  &quot;Beijing&quot; &quot;Beijing&quot; &quot;Beijing&quot; &quot;Beijing&quot; ...
+</code></pre>
+
+<p>啥是因子（factor）？因子，也可以叫做分类变量，就是对某个向量进行分组的向量。这么说起来很绕，还是举个例子吧。上面得到的数据框 data，其中 data$pm 有 36 个数值，可以按日期分成 18 组，也可以按城市分成两组，这个分组信息就是因子。目前，日期和城市两列数据还不是因子，而是整数和字符。要想转换成因子，就要这样：</p>
+
+<pre><code class="r">data$city &lt;- factor(data$city)
+str(data)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    37 obs. of  3 variables:
+##  $ date: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ pm  : int  5 27 75 22 130 228 220 205 63 35 ...
+##  $ city: Factor w/ 2 levels &quot;Beijing&quot;,&quot;Zhengzhou&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+</code></pre>
+
+<p>现在，data$city 是个因子了。因子的取值叫做“水平”(level)。看看因子有几个水平，水平分别是什么：</p>
+
+<pre><code class="r">nlevels(data$city)
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">levels(data$city)
+</code></pre>
+
+<pre><code>## [1] &quot;Beijing&quot;   &quot;Zhengzhou&quot;
+</code></pre>
+
+<p>因子有什么用呢？当然就是用来对数据分类了。请看下面的例子：</p>
+
+<pre><code class="r">plot(x = data$city, y = data$pm)  # 当x是因子时，plot自动画出箱型图。等同于boxplot(data$pm ~ data$city)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-37"/> </p>
+
+<pre><code>练习07.1 把示例数据中的日期列转换成因子，并按日期分类做出箱型图。
+</code></pre>
+
+<pre><code class="r"># 分别计算两地最近18天的PM2.5平均值。
+for (i in levels(data$city)) {
+    print(i)
+    print(mean(data$pm[data$city == i]))
+}
+</code></pre>
+
+<pre><code>## [1] &quot;Beijing&quot;
+## [1] 125
+## [1] &quot;Zhengzhou&quot;
+## [1] 66.8
+</code></pre>
+
+<pre><code class="r">tapply(data$pm, data$city, mean)  # 跟上一条循环指令的作用相同。懒人的福音又来了！
+</code></pre>
+
+<pre><code>##   Beijing Zhengzhou 
+##     124.7      66.8
+</code></pre>
+
+<p>dapeng 是太喜欢 <code>tapply()</code>了。以前处理过这么个数据文件，有两列，第一列是日期，第二列是日均气温值，每天一行，总共一年，365 行，需要计算月平均气温。因为各月的天数是不同的，dapeng 只好在 Excel 里用鼠标拖，或者数单元格的位置，一共算了 12 次，还庆幸幸好只有 365 行。后来才知道 Excel 有“数据透视表”这个东西，但仍然觉得不灵活。现在有了 <strong>R</strong>，只要增加一列月份因子（方法以后专门介绍），一条 &#39;tapply()&#39; 就搞定，就算是有三万六千行，也不费吹灰之力了。</p>
+
+<pre><code>练习07.2 用tapply()和示例数据，分别计算北京和郑州两城市最近 PM2.5 日均值的最大值、最小值、中值。
+</code></pre>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>按行合并数据</td>
+<td><code>rbind</code></td>
+</tr>
+<tr>
+<td>因子</td>
+<td><code>factor(), nlevels(), levels()</code></td>
+</tr>
+<tr>
+<td>分类计算</td>
+<td><code>tapply()</code></td>
+</tr>
+</tbody></table>
+
+<h2>第08篇 习题集</h2>
+
+<p>纸上谈兵没有用，实战是练兵最有效的方法。本篇是习题集。做习题之前，对前面的某些内容作个小结，顺便热热身。</p>
+
+<p><em>开胃小菜：你大可以邊用邊學啊！需要用到的先學，其它的就放一邊，只要能善用一些常用到的功能，又何必要那麼深入呢？而且您在使用當中經常會發現一些新功能，這又會馬上讓您給賺到了。&ndash; 语出<a href="http://www.study-area.org/tips/vim/index.html">大家來學VIM</a></em></p>
+
+<p>到目前为止，我们遇到过向量、矩阵、数据框，这些都叫做对象的类型。它们的区别和联系在哪里？</p>
+
+<p>向量，vector，是最简单的对象。向量由一个或多个同类变量组成。</p>
+
+<pre><code class="r">x &lt;- c(1, 1, 2, 2, 3)  # 生成一个向量。
+is.character(x)  # x 是字符型吗？
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">is.numeric(x)  # x 是数字型吗？
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">mode(x)  # 是数字型。
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">y &lt;- c(3, 4, 4, 5, 5)
+z &lt;- c(x, y)  # 多个向量并在一起。
+z
+</code></pre>
+
+<pre><code>##  [1] 1 1 2 2 3 3 4 4 5 5
+</code></pre>
+
+<pre><code class="r">z[4]  # 向量的下标。
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<p>矩阵，matrix，与向量差不多，不同的是分成了行和列。</p>
+
+<pre><code class="r">m &lt;- matrix(c(2, 3, 1, 5), nrow = 2, ncol = 2)  # 生成一个矩阵，指定行数和列数。
+m
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    2    1
+## [2,]    3    5
+</code></pre>
+
+<pre><code class="r">m &lt;- matrix(c(2, 3, 1, 5), nrow = 2)  # 生成一个矩阵，指定行数。
+m
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    2    1
+## [2,]    3    5
+</code></pre>
+
+<pre><code class="r">m &lt;- matrix(seq(1, 20, 1), nrow = 5, byrow = TRUE)  # 生成一个矩阵，指定行数，并按行排列。
+m
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12
+## [4,]   13   14   15   16
+## [5,]   17   18   19   20
+</code></pre>
+
+<pre><code class="r">m &lt;- matrix(seq(1, 20, 1), nrow = 5, byrow = FALSE)  # 生成一个矩阵，指定行数，并按列排列。
+m[2, 2]  # 矩阵的下标。
+</code></pre>
+
+<pre><code>## [1] 7
+</code></pre>
+
+<p>数据框，dataframe，与矩阵差不多，区别在于，各列可以是不同类型。完全相当于 Excel 的表格。</p>
+
+<pre><code class="r">a &lt;- c(1, 2, 3, 4)
+b &lt;- seq(5, 8, by = 1)
+d &lt;- data.frame(a, b)  # 生成一个数据框。
+d
+</code></pre>
+
+<pre><code>##   a b
+## 1 1 5
+## 2 2 6
+## 3 3 7
+## 4 4 8
+</code></pre>
+
+<pre><code class="r">is.data.frame(d)  # 是数据框吗？
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">str(d)  # 数据框的结构。
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    4 obs. of  2 variables:
+##  $ a: num  1 2 3 4
+##  $ b: num  5 6 7 8
+</code></pre>
+
+<pre><code class="r">class(d)
+</code></pre>
+
+<pre><code>## [1] &quot;data.frame&quot;
+</code></pre>
+
+<pre><code class="r">nrow(d)
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<pre><code class="r">ncol(d)
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">e &lt;- c(9, 10)
+f &lt;- rbind(d, e)  # 给数据框增加一行。
+f
+</code></pre>
+
+<pre><code>##   a  b
+## 1 1  5
+## 2 2  6
+## 3 3  7
+## 4 4  8
+## 5 9 10
+</code></pre>
+
+<pre><code class="r">g &lt;- c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;)
+class(g)
+</code></pre>
+
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+
+<pre><code class="r">h &lt;- cbind(f, g)  # 给数据框增加一列。
+h
+</code></pre>
+
+<pre><code>##   a  b     g
+## 1 1  5   one
+## 2 2  6   two
+## 3 3  7 three
+## 4 4  8  four
+## 5 9 10  five
+</code></pre>
+
+<pre><code class="r">class(h)
+</code></pre>
+
+<pre><code>## [1] &quot;data.frame&quot;
+</code></pre>
+
+<pre><code class="r">ncol(h)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">colnames(h) &lt;- c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;)  # 更改列名称。
+h
+</code></pre>
+
+<pre><code>##   one two three
+## 1   1   5   one
+## 2   2   6   two
+## 3   3   7 three
+## 4   4   8  four
+## 5   9  10  five
+</code></pre>
+
+<p>下面开始习题。练习的内容主要是复习已经学过的，并提升一点点。点击<a href="http://dapengde.com/wp-content/uploads/2013/03/dapengde_DummyR_students.csv">这里</a>下载练习数据。</p>
+
+<pre><code># 练习 08.1 读入数据。
+任务：读入练习数据，保存到一个叫 st_df 的对象中，并初步查看。
+提示：read.csv(), file.show(), str(), summary()。
+
+# 练习 08.2 数据类型。
+任务：查看 st_df的类型。
+提示：is.numeric(), is.character()... , str(), class()。
+
+# 练习 08.3 矩阵。
+任务：生成一个 5 行 6 列的矩阵，取值为整数数列 1:30。
+提示：matrix(), seq()。
+
+# 练习 08.4 矩阵与数据框。
+任务：将 st_df 转换成矩阵对象 st_mt，并比较 st_df 与 st_mt 的区别。从二者选择 shoe 列。选择第 3, 4, 6, 17 行。选择除了 3, 4, 6, 17 行之外的其他行。
+提示: as.matrix(), is.numeric(), mode(), st_mt[,], is.character(), class(), rownames(), %in%, !。
+
+
+# 练习 08.5 作图。
+任务：做图，x 为 st_df 中 shoe 一列， y 为 hand 一列，数据点用红色的原点。
+任务：做图，x 为 shoe 一列， y 为 sex 一列。
+提示: plot(), points(), lines(), boxplot(), par(mfrow=c(, )), ?plot
+
+# 练习 08.6 数据框操作。
+任务：给 st_df 增加一列性别所写，列名称为 sex2，取值是 f 和 m，f 表示女性，m 表示 男性。
+提示：ifelse()。
+
+# 练习 08.7 计算。
+任务：st_df 数据框中包含了多少名男生和多少名女生？
+提示：table()， summary()。
+任务：st_df 中的鞋号是英码，请增加一列鞋号，取值是鞋号的中国尺码。转换方法自行搜索。
+提示：round()。
+
+# 练习 08.8 因子。
+任务：给st_df 增加一列 shoe_factor，取值是因子类型的鞋号。比较 shoe ~ sex 和 shoe_factor ~ sex 的箱式图。
+提示：as.factor(), boxplot(), par(mfrow=c(1, 2))
+
+# 练习 08.9 作图。
+任务：做散点图，x 为鞋号，y 为身高。横坐标同时出现英码刻度和中国尺码刻度。图片保存为 pdf 文件。
+提示：seq(), par(), plot(... , axes=FALSE, ...), axis(), mtext(), box()， pdf(), dev.off()。
+</code></pre>
+
+<p>菜鸟学 <strong>R</strong>，不必面面俱到，多练练习题，上手之后就会喜欢上 <strong>R</strong>，就有兴趣深入了解下去。</p>
+
+<h2>第09篇 字符串</h2>
+
+<p><strong>R</strong> 用单引号或双引号来表示字符串。其实前面我们已经接触过了：</p>
+
+<pre><code class="r">pm &lt;- &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;
+pm
+</code></pre>
+
+<pre><code>## [1] &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;
+</code></pre>
+
+<pre><code class="r">class(pm)
+</code></pre>
+
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+
+<p><strong>R</strong> 可以很灵活地把多个字符串 <strong>合并</strong>。</p>
+
+<pre><code class="r">paste(&quot;A&quot;, &quot;B&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;A B&quot;
+</code></pre>
+
+<pre><code class="r">paste(&quot;A&quot;, &quot;B&quot;, sep = &quot;_&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;A_B&quot;
+</code></pre>
+
+<pre><code class="r">paste(c(&quot;A&quot;, &quot;B&quot;), 3)
+</code></pre>
+
+<pre><code>## [1] &quot;A 3&quot; &quot;B 3&quot;
+</code></pre>
+
+<pre><code class="r">paste(c(&quot;A&quot;, &quot;B&quot;), 3:4)
+</code></pre>
+
+<pre><code>## [1] &quot;A 3&quot; &quot;B 4&quot;
+</code></pre>
+
+<pre><code class="r">paste(c(&quot;A&quot;, &quot;B&quot;), 3:4, sep = &quot;_&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;A_3&quot; &quot;B_4&quot;
+</code></pre>
+
+<pre><code class="r">paste(c(&quot;A&quot;, &quot;B&quot;), 3:4, sep = &quot;_&quot;, collapse = &quot;-&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;A_3-B_4&quot;
+</code></pre>
+
+<pre><code class="r">
+x &lt;- 34
+threshold &lt;- 99
+if (x &lt; threshold) print(paste(&quot;x is less than&quot;, threshold))
+</code></pre>
+
+<pre><code>## [1] &quot;x is less than 99&quot;
+</code></pre>
+
+<pre><code class="r">
+path &lt;- &quot;c:\\R\\data&quot;
+file &lt;- &quot;dapengde_DummyR_PM25.csv&quot;
+paste(path, file, sep = &quot;\\&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;c:\\R\\data\\dapengde_DummyR_PM25.csv&quot;
+</code></pre>
+
+<pre><code class="r">
+cat(&quot;可以换行&quot;, &quot;\n&quot;, &quot;也可以&quot;, &quot;\t&quot;, &quot;tab&quot;)符，可加入换行和tab。
+</code></pre>
+
+<pre><code>## 可以换行 
+##  也可以    tab
+</code></pre>
+
+<p><strong>分割和截取</strong>：</p>
+
+<pre><code class="r">nchar(x)
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">strsplit(&quot;dapengde.com&quot;, &quot;e&quot;)
+</code></pre>
+
+<pre><code>## [[1]]
+## [1] &quot;dap&quot;  &quot;ngd&quot;  &quot;.com&quot;
+</code></pre>
+
+<pre><code class="r">substr(&quot;dapengde.com&quot;, 1, 6)
+</code></pre>
+
+<pre><code>## [1] &quot;dapeng&quot;
+</code></pre>
+
+<pre><code class="r">substring(&quot;dapengde.com&quot;, 1:10, 1:10)  # 这条指令换做substr试试有何不同。
+</code></pre>
+
+<pre><code>##  [1] &quot;d&quot; &quot;a&quot; &quot;p&quot; &quot;e&quot; &quot;n&quot; &quot;g&quot; &quot;d&quot; &quot;e&quot; &quot;.&quot; &quot;c&quot;
+</code></pre>
+
+<p><strong>查找和替换</strong>：</p>
+
+<pre><code class="r">grep(&quot;e&quot;, c(&quot;dapeng&quot;, &quot;de&quot;, &quot;.com&quot;))
+</code></pre>
+
+<pre><code>## [1] 1 2
+</code></pre>
+
+<pre><code class="r">gsub(&quot;d&quot;, &quot;D&quot;, c(&quot;dapengde&quot;, &quot;de&quot;, &quot;.com&quot;))
+</code></pre>
+
+<pre><code>## [1] &quot;DapengDe&quot; &quot;De&quot;       &quot;.com&quot;
+</code></pre>
+
+<pre><code class="r">sub(&quot;d&quot;, &quot;D&quot;, c(&quot;dapengde&quot;, &quot;de&quot;, &quot;.com&quot;))
+</code></pre>
+
+<pre><code>## [1] &quot;Dapengde&quot; &quot;De&quot;       &quot;.com&quot;
+</code></pre>
+
+<pre><code class="r">chartr(&quot;de&quot;, &quot;cn&quot;, &quot;dapengde.com&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;capnngcn.com&quot;
+</code></pre>
+
+<p>大小写转换：</p>
+
+<pre><code class="r">tolower(&quot;DAPENGDE&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;dapengde&quot;
+</code></pre>
+
+<pre><code class="r">toupper(&quot;com&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;COM&quot;
+</code></pre>
+
+<p>将数字转换成字符串。</p>
+
+<pre><code class="r">as.character(2)
+</code></pre>
+
+<pre><code>## [1] &quot;2&quot;
+</code></pre>
+
+<pre><code class="r">formatC(2, width = 2, flag = &quot;0&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;02&quot;
+</code></pre>
+
+<p>将上面这些命令组合起来，<strong>R</strong> 对字符串的操作无所不能。</p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>字符串合并</td>
+<td><code>paste(), cat()</code></td>
+</tr>
+<tr>
+<td>字符串分割和截取</td>
+<td><code>strsplit(), substr(), substring()</code></td>
+</tr>
+<tr>
+<td>字符串查找和替换</td>
+<td><code>grep(), gsub(), sub(), chartr()</code></td>
+</tr>
+<tr>
+<td>字符串大小写转换</td>
+<td><code>tolower(), toupper()</code></td>
+</tr>
+<tr>
+<td>将数字转换成字符串</td>
+<td><code>as.character(), formatC()</code></td>
+</tr>
+</tbody></table>
+
+<h2>第10篇 函数和包</h2>
+
+<p>终于轮到介绍 <strong>R</strong> 的精髓了，那就是包，package。欲知包，必先知函数，function。</p>
+
+<p>我们已经遇到过很多函数了。<strong>R</strong> 中大多数工作都是函数完成的。经验告诉我们，调用函数的格式是：<code>函数名(变量1 = 某个值，变量2 = 某个值，...)</code>。我们以前用过的，都是 <strong>R</strong> 基础安装包里有限的一些预先设置好的函数。比如：</p>
+
+<pre><code class="r">x &lt;- 1:5
+sd(x)  # sd 是函数名, x 是自变量。
+</code></pre>
+
+<pre><code>## [1] 1.58
+</code></pre>
+
+<p><code>sd()</code>用来计算标准差。当我们发出这条指令时，<strong>R</strong> 在幕后到底忙活个啥呢？输入函数名就能看到了：</p>
+
+<pre><code class="r">sd
+</code></pre>
+
+<pre><code>## function (x, na.rm = FALSE) 
+## {
+##     if (is.matrix(x)) {
+##         msg &lt;- &quot;sd(&lt;matrix&gt;) is deprecated.\n Use apply(*, 2, sd) instead.&quot;
+##         warning(paste(msg, collapse = &quot;&quot;), call. = FALSE, domain = NA)
+##         apply(x, 2, sd, na.rm = na.rm)
+##     }
+##     else if (is.vector(x)) 
+##         sqrt(var(x, na.rm = na.rm))
+##     else if (is.data.frame(x)) {
+##         msg &lt;- &quot;sd(&lt;data.frame&gt;) is deprecated.\n Use sapply(*, sd) instead.&quot;
+##         warning(paste(msg, collapse = &quot;&quot;), call. = FALSE, domain = NA)
+##         sapply(x, sd, na.rm = na.rm)
+##     }
+##     else sqrt(var(as.vector(x), na.rm = na.rm))
+## }
+## &lt;bytecode: 0x053ba43c&gt;
+## &lt;environment: namespace:stats&gt;
+</code></pre>
+
+<p>甚至 <code>x &lt;- 1:5</code> 这一句，其实背后运行的也是个函数，等同于：</p>
+
+<pre><code>assign(&quot;x&quot;, 1:5)
+</code></pre>
+
+<p>内置函数虽然功能强大，但是毕竟有限，要是能随心所欲自己定义新函数就好了。这一点 <strong>R</strong> 贴心地考虑到了。比如说，当年有一回全班考得都很惨，老师心软了，说为了提高及格率，把卷面分数开方乘十作为新分数吧。为了以后经常用来提高及格率，我们可以专门定义这样一个函数，完全仿照内置函数的格式：</p>
+
+<pre><code class="r">newscore &lt;- function(x) {
+    # newscore 是自定义的函数名，它有一个自变量 x。函数的返回值是 sqrt(x) * 10。
+    sqrt(x) * 10
+}
+</code></pre>
+
+<p>以后当考了40分的时候，可以这样调用你的新函数：</p>
+
+<pre><code class="r">newscore(x = 40)
+</code></pre>
+
+<pre><code>## [1] 63.2
+</code></pre>
+
+<p><em>开胃小菜：更妙的操作方式，想一次可以用很久喔！有人說，學電腦的人，動腦筋就是為了偷懶。&ndash; 语出<a href="http://www.study-area.org/tips/vim/index.html">大家來學VIM</a></em></p>
+
+<p>上面这个例子中，自变量 x 只是用来在函数内部传递信息用的，不会影响函数之外的对象。看看这个例子：</p>
+
+<pre><code class="r">x &lt;- 36
+y &lt;- 81
+newscore(x = y)  # 函数内部的 x 把 81 的值传递进来，而不是36。
+</code></pre>
+
+<pre><code>## [1] 90
+</code></pre>
+
+<p>可以有多个自变量：</p>
+
+<pre><code class="r">news &lt;- function(x, n) {
+    sqrt(x) * 10 + n
+}
+news(x = 36, n = 10)
+</code></pre>
+
+<pre><code>## [1] 70
+</code></pre>
+
+<pre><code class="r">news(36, 10)  # 懒人为了省事儿，按自变量的默认顺序写就行了。
+</code></pre>
+
+<pre><code>## [1] 70
+</code></pre>
+
+<pre><code class="r">news(n = 10, x = 36)  # 如果打乱顺序，就必须指定谁是谁。
+</code></pre>
+
+<pre><code>## [1] 70
+</code></pre>
+
+<p>每次调用自定义函数 newscore 的时候，必须提供所有自变量的取值，否则就会报错：</p>
+
+<pre><code class="r">newscore()
+</code></pre>
+
+<pre><code>## Error: &#39;x&#39; is missing
+</code></pre>
+
+<p>为避免这个问题，需要给个默认值：</p>
+
+<pre><code class="r">newscore &lt;- function(x = 36) {
+    # x 默认是 36。
+    sqrt(x) * 10
+}
+newscore()
+</code></pre>
+
+<pre><code>## [1] 60
+</code></pre>
+
+<p>给函数定义时，我们用了花括号{}，这意味着可以把一组操作都放进去，哪怕这一组操作有千万行，以后只用一行就可以调用一遍了！比如第 05 篇提到过的指数增长，可以定义一个函数<code>exponentialGrowth</code>：</p>
+
+<pre><code class="r">exponentialGrowth &lt;- function(N0, r = 0.01, tmax = 10) {
+    # 三个自变量：初始值，增长率，时间。
+    N &lt;- N0
+    for (t in 1:(tmax - 1)) {
+        N[t + 1] &lt;- N[t] + r * N[t]
+    }
+    N  # 这是最后一行，作为函数的返回值。
+}
+
+exponentialGrowth(66.8)
+</code></pre>
+
+<pre><code>##  [1] 66.8 67.5 68.1 68.8 69.5 70.2 70.9 71.6 72.3 73.1
+</code></pre>
+
+<pre><code class="r">plot(exponentialGrowth(66.8, 0.01, 100))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-56"/> </p>
+
+<pre><code>练习10.1 自定义一个名为 kaifang 的函数，用来开平方。
+练习10.2 自定义一个名为 cv 的函数，用来计算变异系数，即 标准差除以平均值的商。
+</code></pre>
+
+<p>上面我们自定义了几个函数。世界上很多角落都有想把 36 分变成 60 分的苦命同学，为了让他们也能方便地调用我们自定义的函数，我们可以把它们打包上传到服务器上，这样别人下载了就可以直接用。这就是包。包就是一组预设函数的集合，有时候也包含一些数据。一个包里可能只有一个函数，也可能有成千上万个。<strong>R</strong> 能走到今天，是一个聚沙成塔、集腋成裘的过程，其中的沙和腋，正是众多热心人花心血写成并奉献出来的扩展包。每个人献出一滴水，终于创造出如今的汪洋大海任你畅游。到底有多少个扩展包呢？用这条命令：</p>
+
+<pre><code>length(unique(rownames(available.packages()))) 
+</code></pre>
+
+<p>扩展包是 <strong>R</strong> 的生命力所在。找到一个合适的扩展包，能起到事半功倍的效果。甚至可以说，会用扩展包，比本文前9篇介绍的所有内容都重要！很多人用 <strong>R</strong> 就是奔着扩展包来的。</p>
+
+<p>还是举个例子吧。</p>
+
+<p>北京有个著名的广场，常年根据预测的日出日落时间来确定<a href="http://www.tiananmen.org.cn/flag/index.asp">升降国旗仪式的时间</a>，这个是怎么预测的？参看<a href="http://www.ubeijing.cn/zhinan/2557.html">这里</a>。日出日落时间的计算是可以当作<a href="http://news.lnd.com.cn/htm/2008-07/07/content_236459.htm">新闻</a>来报导的，这让 dapeng 觉得挺神秘。直到有一天，dapeng 需要把某个观测点半年的气温数据（每半小时一条）分为白天和黑夜两组，那么就要判断当地每天的日出和日落时间，不得不设法揭开这个神秘面纱了。上网一搜，哦买告的，计算过程不是一般的复杂啊（见<a href="http://www.joyloft.net/?p=456">这里</a>），需要有三角函数知识、立体几何知识、天文学知识等等等等，最要命的是还得有足够的耐心。dapeng 花了大概一天的工夫，硬着头皮算出了个数，却跟实际对不上号。</p>
+
+<p>后来，惊喜地发现了 maptools 这个扩展包，安装这个包之后，用其中的 <code>sunriset()</code> 函数一条指令轻松搞定。前天是一个重要的日子，我们计算一下当天的升降国旗时间。</p>
+
+<pre><code>install.packages(&quot;maptools&quot;) # 第一次使用某个扩展包时要先安装。
+</code></pre>
+
+<pre><code class="r">require(maptools)  # 调用扩展包，让 R 识别其中的函数。
+</code></pre>
+
+<pre><code>## Loading required package: maptools
+</code></pre>
+
+<pre><code>## Warning: package &#39;maptools&#39; was built under R version 2.15.3
+</code></pre>
+
+<pre><code>## Loading required package: foreign
+</code></pre>
+
+<pre><code>## Loading required package: sp
+</code></pre>
+
+<pre><code>## Warning: package &#39;sp&#39; was built under R version 2.15.3
+</code></pre>
+
+<pre><code>## Loading required package: grid
+</code></pre>
+
+<pre><code>## Loading required package: lattice
+</code></pre>
+
+<pre><code>## Checking rgeos availability: FALSE Note: when rgeos is not available,
+## polygon geometry computations in maptools depend on gpclib, which has a
+## restricted licence. It is disabled by default; to enable gpclib, type
+## gpclibPermit()
+</code></pre>
+
+<pre><code class="r">position &lt;- c(116.39, 39.91)  # 旗杆的经纬度。
+mydate &lt;- &quot;2013-03-24&quot;  # 要计算的日期。
+sunriset(matrix(position, nrow = 1), as.POSIXct(mydate, tz = &quot;Asia/Shanghai&quot;), 
+    direction = c(&quot;sunrise&quot;), POSIXct.out = TRUE)$time  # 日出时间。
+</code></pre>
+
+<pre><code>## [1] &quot;2013-03-24 06:11:53 CST&quot;
+</code></pre>
+
+<pre><code class="r">sunriset(matrix(position, nrow = 1), as.POSIXct(mydate, tz = &quot;Asia/Shanghai&quot;), 
+    direction = c(&quot;sunset&quot;), POSIXct.out = TRUE)$time  # 日落时间。
+</code></pre>
+
+<pre><code>## [1] &quot;2013-03-24 18:30:15 CST&quot;
+</code></pre>
+
+<p>跟官方公布的一点也不差。一个完整的扩展包包括了帮助信息，所以我们的法宝问号仍然管用。自己试试 &#39;?sunriset&#39;。若要了解整个扩展包中所有的函数，可以 google 搜索 &#39;cran maptools&#39;，也可以在本地计算机 <strong>R</strong> 的安装路径下面 library 文件夹中找到。</p>
+
+<p>让我们更进一步，自定义一个函数，计算该广场任意一段时期的升降旗时刻：</p>
+
+<pre><code class="r">flag &lt;- function(date.start = &quot;2013-03-24&quot;, date.length = 7) {
+    # 函数名为flag，默认是计算从前天起一周的升降器时刻。
+    mydate &lt;- seq(as.POSIXct(date.start, tz = &quot;Asia/Shanghai&quot;), by = 3600 * 
+        24, length.out = date.length)
+    data.frame(sunrise = sunriset(matrix(c(116.39, 39.91), nrow = 1), as.POSIXct(mydate, 
+        tz = &quot;Asia/Shanghai&quot;), direction = c(&quot;sunrise&quot;), POSIXct.out = TRUE)$time, 
+        sunset = sunriset(matrix(c(116.39, 39.91), nrow = 1), as.POSIXct(mydate, 
+            tz = &quot;Asia/Shanghai&quot;), direction = c(&quot;sunset&quot;), POSIXct.out = TRUE)$time)
+}
+
+flag(&quot;2013-10-01&quot;)  # 好了，以后调用这个函数就能很方便计算。
+</code></pre>
+
+<pre><code>##               sunrise              sunset
+## 1 2013-10-01 06:10:24 2013-10-01 17:57:17
+## 2 2013-10-02 06:11:22 2013-10-02 17:55:40
+## 3 2013-10-03 06:12:21 2013-10-03 17:54:03
+## 4 2013-10-04 06:13:20 2013-10-04 17:52:27
+## 5 2013-10-05 06:14:20 2013-10-05 17:50:51
+## 6 2013-10-06 06:15:19 2013-10-06 17:49:16
+## 7 2013-10-07 06:16:19 2013-10-07 17:47:41
+</code></pre>
+
+<p>如果你懒得自己算，只想知道某地的日出日落时刻，请给 dapeng 留言。<a href="http://dapengde.com/sunriset">这里</a>是已经计算的北京等地今后三年的日出日落时刻表。</p>
+
+<pre><code>练习10.3 利用google earth 查出你所在地点的经纬度，然后利用 maptools 扩展包，计算你所在地点 2013 -2113 年 100 年的日出日落时间，然后通知记者来报导“退休职工某某某计算出某地日出日落时间表”。
+</code></pre>
+
+<p>再举个例子。谢益辉开发了一个制作动画的扩展包，很有趣：</p>
+
+<pre><code>install.packages(&quot;animation&quot;)
+require(animation)
+demo(&quot;fireworks&quot;) # 会用网页浏览器打开一个动画。
+citation(&quot;animation&quot;) # 看看作者。
+</code></pre>
+
+<p>看着那些琳琅满目的扩展包，dapeng 有种逛苹果商场看app的感觉。网上看到说，<a href="http://i.ifeng.com/video/fhtese/qqsrx/news?vt=5&amp;aid=56044505&amp;mid=&amp;m=1">“陈红是陈凯歌的第四任妻子，从此之后，陈凯歌再也没有过绯闻。记者采访陈红，拴住大导演的心的秘诀是什么？陈红简单的回答，做百变女人。”</a>扩展包让 <strong>R</strong> 成了魅力十足的百变女人，教人如何不爱她？</p>
+
+<h2>有用的信息：</h2>
+
+<table><thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>自定义函数</td>
+<td><code>function()</code></td>
+</tr>
+<tr>
+<td>扩展包</td>
+<td><code>install.packages(), require(), citation()</code></td>
+</tr>
+</tbody></table>
+
+<h2>第11篇 空间数据</h2>
+
+<p>写到这里，三大秘诀和三大法宝亮过相了，基本操作介绍过了，扩展包也华丽登过场了，基本上，菜鸟们已经可以独立折腾了，这个系列的帖子也写不下去了。不过，第 05 篇提到过画地图的问题，就再多写一篇介绍一下空间数据吧。</p>
+
+<p><em>开胃小菜:  这就是 R。这里没有做不到，只有想不到。（This is R. There is no if. Only how. by Simon Blomberg.)</em></p>
+
+<p>空间数据，也就是地理信息系统 GIS 的数据，很多人都用昂贵的 ArcGIS 软件来处理。其实，免费的<strong>R</strong> 配上强大的扩展包，也能够处理很多 GIS 问题，有时甚至更灵活。老实说， dapeng 对 GIS 用得不多，这一篇也就不得不讲得浅显，见谅了。感兴趣的菜鸟可以看<a href="http://cran.r-project.org/web/views/Spatial.html">这里</a>、<a href="http://spatial-analyst.net/">这里</a>以及<a href="http://www.amazon.com/Applied-Spatial-Data-Analysis-Use/dp/0387781706">这本书</a>。</p>
+
+<p>这里，我们一起在中国地图上，各省份区域用不同颜色来区分，颜色代表该省 PM10 的质量浓度。请先点击<a href="http://sdrv.ms/Zuwe5U">这里</a>下载地图。这是个压缩包，下载后请解压缩到 <em>c:\R\data\chinamap\</em> 文件夹。这个文件夹下应该有三个文件，即 bou2_4p.dbf，bou2_4p.shp，bou2_4p.shx。</p>
+
+<pre><code class="r">require(rgdal)  # 用来处理 GIS 数据的扩展包。若是第一次使用，请自行安装。
+</code></pre>
+
+<pre><code>## Loading required package: rgdal
+</code></pre>
+
+<pre><code>## Warning: package &#39;rgdal&#39; was built under R version 2.15.3
+</code></pre>
+
+<pre><code>## rgdal: version: 0.8-5, (SVN revision 449) Geospatial Data Abstraction
+## Library extensions to R successfully loaded Loaded GDAL runtime: GDAL
+## 1.9.2, released 2012/10/08 Path to GDAL shared files: d:/Program
+## Files/R/R-2.15.2/library/rgdal/gdal GDAL does not use iconv for recoding
+## strings. Loaded PROJ.4 runtime: Rel. 4.7.1, 23 September 2009,
+## [PJ_VERSION: 470] Path to PROJ.4 shared files: d:/Program
+## Files/R/R-2.15.2/library/rgdal/proj
+</code></pre>
+
+<pre><code class="r">require(plotrix)  # 用来画图例的扩展包。自行安装
+</code></pre>
+
+<pre><code>## Loading required package: plotrix
+</code></pre>
+
+<pre><code class="r">cm &lt;- readOGR(&quot;C:\\R\\data\\chinamap&quot;, &quot;bou2_4p&quot;)  # 读入 GIS 数据
+</code></pre>
+
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;C:\R\data\chinamap&quot;, layer: &quot;bou2_4p&quot;
+## with 925 features and 7 fields
+## Feature type: wkbPolygon with 2 dimensions
+</code></pre>
+
+<pre><code class="r">summary(cm)
+</code></pre>
+
+<pre><code>## Object of class SpatialPolygonsDataFrame
+## Coordinates:
+##     min   max
+## x 73.45 135.1
+## y  6.32  53.6
+## Is projected: NA 
+## proj4string : [NA]
+## Data attributes:
+##       AREA       PERIMETER        BOU2_4M_     BOU2_4M_ID  
+##  Min.   :  0   Min.   :  0.0   Min.   :  2   Min.   :   0  
+##  1st Qu.:  0   1st Qu.:  0.0   1st Qu.:233   1st Qu.: 588  
+##  Median :  0   Median :  0.0   Median :464   Median :2235  
+##  Mean   :  1   Mean   :  1.5   Mean   :464   Mean   :1856  
+##  3rd Qu.:  0   3rd Qu.:  0.1   3rd Qu.:695   3rd Qu.:3004  
+##  Max.   :176   Max.   :129.9   Max.   :926   Max.   :3338  
+##                                                            
+##     ADCODE93         ADCODE99           NAME    
+##  Min.   :     0   Min.   :     0   浙江省 :179  
+##  1st Qu.:330000   1st Qu.:330000   福建省 :168  
+##  Median :350000   Median :350000   广东省 :154  
+##  Mean   :405762   Mean   :405751   辽宁省 : 94  
+##  3rd Qu.:440000   3rd Qu.:440000   山东省 : 86  
+##  Max.   :810000   Max.   :810000   (Other):243  
+##                                    NA&#39;s   :  1
+</code></pre>
+
+<pre><code class="r">levels(cm$NAME)  # 省市名称。
+</code></pre>
+
+<pre><code>##  [1] &quot;安徽省&quot;           &quot;北京市&quot;           &quot;福建省&quot;          
+##  [4] &quot;甘肃省&quot;           &quot;广东省&quot;           &quot;广西壮族自治区&quot;  
+##  [7] &quot;贵州省&quot;           &quot;海南省&quot;           &quot;河北省&quot;          
+## [10] &quot;河南省&quot;           &quot;黑龙江省&quot;         &quot;湖北省&quot;          
+## [13] &quot;湖南省&quot;           &quot;吉林省&quot;           &quot;江苏省&quot;          
+## [16] &quot;江西省&quot;           &quot;辽宁省&quot;           &quot;内蒙古自治区&quot;    
+## [19] &quot;宁夏回族自治区&quot;   &quot;青海省&quot;           &quot;山东省&quot;          
+## [22] &quot;山西省&quot;           &quot;陕西省&quot;           &quot;上海市&quot;          
+## [25] &quot;四川省&quot;           &quot;台湾省&quot;           &quot;天津市&quot;          
+## [28] &quot;西藏自治区&quot;       &quot;香港特别行政区&quot;   &quot;新疆维吾尔自治区&quot;
+## [31] &quot;云南省&quot;           &quot;浙江省&quot;           &quot;重庆市&quot;
+</code></pre>
+
+<pre><code class="r">pm &lt;- c(100, 141, 80, 174, 99, 72, 104, 30, 175, 107, 121, 133, 135, 98, 120, 
+    100, 135, 116, 132, 139, 149, 172, 136, 97, 118, NA, 133, 65, NA, 127, 86, 
+    119, 147)  # 按照上一条指令得到的省市名称的顺序，对应的省会城市 PM10 质量浓度。恕 dapeng 无法提供数据来源，就当瞎编的吧。
+pm.col &lt;- cm.colors(diff(c(30, 180)) + 1)[(pm - min(pm, na.rm = TRUE)) + 1]  # 将 PM10 浓度用颜色代码表示。
+cm$col &lt;- cm$NAME  # 添加一列颜色列，与省市名称相同。
+levels(cm$col) &lt;- pm.col  # 更改颜色列的因子。
+plot(cm, col = as.character(factor(cm$col)))  # 作图
+color.legend(120, 20, 123, 2, c(expression(&quot;180 &quot; * mu * &quot;g m&quot;^&quot;-3&quot;), expression(&quot;120 &quot; * 
+    mu * &quot;g m&quot;^&quot;-3&quot;), expression(&quot; 30 &quot; * mu * &quot;g m&quot;^&quot;-3&quot;)), rev(cm.colors(diff(c(30, 
+    100)) + 1)), align = &quot;rb&quot;, gradient = &quot;y&quot;)  # 添加图例。
+axis(1)
+axis(2)
+box()
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAk1BMVEX///8AAACE//+M//+U//+c//+l//+t//+1//+9///G///O///W///e///n///v///3////gv//hv//iv//jv//kv//lv//mv//nv//ov//pv//qv//rv//sv//tv//uv//vv//w///x///y///z///0///1///2///3///4///5///6///7///8///9///+//////u+xmkAAAAMXRSTlP///////////////////////////////////////////////////////////////8AH5pOIQAAAAlwSFlzAAALEgAACxIB0t1+/AAAGodJREFUeJzt3Yl627p2BeC7T0endutep3ObNMO5bu201fs/XU0QADFPBEFQe63vJPExJYrizw2CECn+4YawzB/OXgDknACeaQDPNIBnGsAzDeCZBvBMA3imATzTAJ5pAM80gGcawDMN4JkG8EwDeKYBPNMAnmkAzzSAZxrAMw3gmQbwTAN4pgE80wCeaQDPNIBnGsAzDeCZBvBMA3imATzTAJ5pAM80gGcawDMN4JkG8EwDeKYBPNMAnmkAzzSAZxrAMw3gmQbwTAN4pgE80wCeaQDPNIBnGsAzDeCZBvBMA3imATzTAJ5p9sATMnMOhN/xXOToAJ5pAM80gGcawDMN4JkG8EwDeKYBPNMAnmkAzzSAZxrAMw3gmQbwTAN4pgE80wCeaQDPNIBnGsAzDeCZBvBMA3imATzTAJ5pAM80gGcawDMN4JkG8EwDeKYBPNMAnmkAzzSAZxrAMw3gp07B91O1zjk9GfCnZPtSsre3ki8na3mJ9GTAD472trPQ9+UH/FQh+rXEl1/o33rSA36mSPcQvOLv9lLpyYAfGMq6v/UresDPE7F3T7J3rHnAzxUSBb925g+VB/xc0b07+hWj7yMP+LmidvOJXX2f3Tzgp4rp/iF/YGMP+Jliu8fg3wB/XyHH3Wnrt31+j5IH/Dxx2J2SN4/0AH9Pcet97dxvMdqADiUP+FkScF+kvU2hU8nvh4/e1AjwNQm7B7YE6lPyu+HJ+bd41oiVYvdOjT3g50hxwfc6mAf8FKlr6KeAxz6+Q7wj+Kz77v4devVTpAye7OP6fa+YntwCX3j3UkSHCiveHsI9GZ7kglfPmnWM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" alt="plot of chunk unnamed-chunk-59"/> </p>
+
+<p>颜色越蓝，PM10 浓度越低。跟北京相比，上海虽然有死猪，但 PM10 浓度还是要低很多的。</p>
+
+<pre><code>练习 11.1 从 http://www.diva-gis.org/gdata 免费下载你感兴趣的 GIS 地图，画出来，并更改各区域的颜色。
+</code></pre>
+
+<h2>第12篇 动画</h2>
+
+<p><strong>R</strong> 有很多种制作动画的方法，一般都是先做出多幅静态图片，再连续播放就可以了。下面这个例子是用 <code>image()</code> 函数做出静态图片，用循环指令来连续播放。</p>
+
+<pre><code># 康威生命游戏。内容请咨询维基。
+require(simecol) # 调用这个扩展包是为了使用其中的 eightneighbours() 函数。
+m &lt;- matrix(0, 40, 40)
+m[5:35,19:21] &lt;- 1 # 初始条件。0 表示该位置没有细胞，1 表示有细胞。
+image(m, col=c(&quot;white&quot;, &quot;darkgreen&quot;), axes=FALSE) # 白色表示没有细胞，绿色有细胞。
+for (i in 1:200) {
+  nn &lt;- eightneighbours(m)
+  m.old &lt;- m 
+  m[m.old == 0 &amp; nn == 3] &lt;- 1 # 当周围有三个细胞时该位置产生细胞。
+  m[m.old == 1 &amp; (nn &lt; 2 | nn &gt; 3)] &lt;- 0 # 当周围细胞少于 2 个（太孤单）或大于 3 个（太拥挤）时，该位置细胞死亡。
+  image(m, col=c(&quot;white&quot;, &quot;darkgreen&quot;), axes=FALSE)
+  Sys.sleep(0.1)
+}
+</code></pre>
+
+<p><img src="https://jeaxea.blu.livefilestore.com/y1pLyzPCMBnH6F3inGpgmEnBsy3GjLgsicL4V-e9Vp3fVcxdBOKWmy7g9TgPXHpVNfQ2Cg-VtsJTymAjdUsDKUaguIDWdQnAtSN/2013-03-28_conway.gif" alt=""/></p>
+
+<p>看到有趣的动画了吧？那么如何保存下来呢？只要在作图前后增加打开和关闭图片的函数就可以了，比如存成png格式的图片：</p>
+
+<pre><code>png(paste(&quot;c:\\R\\data\\conway_&quot;, formatC(i, width = 2, flag = &quot;0&quot;), &quot;.png&quot;, sep = &quot;&quot;), width = 300, height = 300) 
+image(m, col=c(&quot;white&quot;, &quot;darkgreen&quot;), axes = FALSE)
+dev.off()
+</code></pre>
+
+<p>然后用其他免费软件，比如ffmpeg或者imagemagick，把图片连成动画即可。</p>
+
+<p>如果安装了imagemagick，那么三维动画可以用 rgl 扩展包做出来。</p>
+
+<pre><code>require(rgl)
+x &lt;- sort(rnorm(1000))
+y &lt;- rnorm(1000)
+z &lt;- rnorm(1000) + atan2(x,y)
+plot3d(x, y, z, col = rainbow(1000), type = &quot;s&quot;, size = 1, alpha = 0.5) # 作图。
+movie3d(spin3d(axis = c(0, 0, 1), rpm = 6), movie = &quot;c:\\R\\data\\movie&quot;, duration = 10, clean = TRUE) # 先做出一系列图片，再调用 imagemagick 生成动画。
+</code></pre>
+
+<p>这就是图 00.2 的来历。</p>
+
+<h2>第13篇 延伸阅读</h2>
+
+<p>写完这个系列的时候，复活节假期即将开始，拜罗伊特的晴天渐渐多了，春天早就迫不及待要到来了，可是冬天死活赖着不走，雪竟然飘了一夜，今早外面又是白茫茫一片。</p>
+
+<p>这一系列帖子，本来是打算整理一下拜罗伊特大学 <em>Introduction to R</em> 的课程讲义，后来 dapeng 觉得可能没有几个人会对斑马纹贻贝的分布情况感兴趣，因此就把举例用的数据换成了更有趣的 PM2.5，当然，也是为了吸引眼球，盼望着那些搜索 PM2.5 的网友误打误撞摸到这里来邂逅 <strong>R</strong>。这样写着写着，就变成了 dapeng 自己的学习心得，离讲义倒是越来越远了。不过，讲义中 90 % 的要点都包含进来了。另外 10 % 呢？因为，因为整理得不及时，这部分给忘掉了，现在已经看不懂了。不过并不要紧，让菜鸟入门的目的应该基本可以达到。</p>
+
+<p>虽然可能只有几个好友来读，不过写完之后，还是松了一口气，算是给了自己一个交代。每次 dapeng 看着老婆对着经常崩溃的 sigmaplot 和经常用鼠标拖来拖去的 Excel 唉声叹气的时候，真心希望她能用上 <strong>R</strong>。不过后来发现，这多半是一种奢望。<strong>R</strong> 再好，<strong>LATEX</strong> 再好，<strong>Vim</strong> 再好，自己享用而已，即便身边最亲近的人也难以强加。那么，这个系列就算是写给过去的自己吧。如果真能穿越回到五年前，dapeng 会把这套学习笔记悄悄发到当时所用的email信箱里。想想当时的 dapeng 正在硬着头皮读 <em>Introduction to R</em> 和 <em>R for beginners</em> 这两本书，正在奇怪这两本号称入门级的教材为何自己无论如何就是读不懂，正在羡慕师姐书架上那厚厚的统计学教材。dapeng 一度怀疑自己的智商有问题。后来，加入了现在所在的研究组。周围的人都在用，<strong>R</strong> 代码满天飞，抓住一个，抓耳挠腮地修改一下，凑合着用到自己的数据处理上，几次下来总算是开了窍，这个过程很艰辛。回过头来看，那两本书真的不适合菜鸟。希望 <strong>R 菜鸟入门</strong> 能够让一些人跳过这个艰辛的阶段。</p>
+
+<p>一旦跳过这个阶段，有些书就容易读了。 dapeng 推荐菜鸟们下一步读读下面这些资料。虽然这些资料在网上都能找得到下载，但是请恕 dapeng 只提供了部分下载的链接，这是考虑到版权，有些书的下载是侵权的。为了保护对原书作者的起码尊重，为了以后我们仍然有书可读，能买正版的还是尽量去买正版吧。</p>
+
+<ul>
+<li>Zuur, Ieno, Meesters 的 <a href="http://www.highstat.com/book3.htm">A beginners&#39; guide to R</a><br/></li>
+</ul>
+
+<p><img src="http://www.highstat.com/Images/img7.jpg" width="160px"/></p>
+
+<p>入门首选的第一本书。再也找不到哪本书能比这一本写得更浅显易懂了（<strong>R 菜鸟入门</strong> 除外）。也是从课程讲义发展而来的。话说当年 dapeng 在学校图书馆找到这本书时，怎一个惊喜了得。点击上面的链接可以下载书中举例的数据和代码。有中译本。</p>
+
+<ul>
+<li>Teetor 的 <a href="http://shop.oreilly.com/product/0636920018315.do">25 Recipes for Getting Started with R</a><br/>
+<img src="http://akamaicovers.oreilly.com/images/0636920018315/lrg.jpg" width="160px"/></li>
+</ul>
+
+<p>实在是很好的入门读物，查阅很方便。中译本由陈钢翻译，叫做 <a href="http://gossipcoder.com/?p=540">R 入门25招</a>，翻译得很好，译者免费放在了自己的博客上。话说 dapeng 写 <strong>R 菜鸟入门</strong> 写了不到一半的时候读了此书的中译本，差点中途放弃。</p>
+
+<ul>
+<li><a href="http://tryr.codeschool.com/">代码学校</a></li>
+</ul>
+
+<p><img src="http://d1kbt5mjomv40p.cloudfront.net/assets/logo-tryr-home-68e548262b848831c5da792b29c66b18.png" width="160px"/></p>
+
+<p>这个网站是 yangliufr 网友推荐的，是个在线课程，可以用实际操作的方式学习。很棒。感谢 yangliufr。</p>
+
+<ul>
+<li>Crawley 的 <a href="http://www.amazon.com/The-Book-Michael-J-Crawley/dp/0470973927">The R Book</a><br/></li>
+</ul>
+
+<p><img src="http://www.wiley-vch.de/books/tis/cover_big/0470973927.jpg" width="160px"/></p>
+
+<p>好厚的一本书啊！1000 页！不过真的很好。第二版的中译本正在翻译中，不久就会面世。很好奇书名会翻译成什么。</p>
+
+<ul>
+<li>刘思喆的 <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CDQQFjAA&amp;url=http%3A%2F%2Fcran.r-project.org%2Fdoc%2Fcontrib%2FLiu-FAQ.pdf&amp;ei=Lr9MUaSnFI7SsgbezIHwDg&amp;usg=AFQjCNH0zcvztYFp93foznimKxJrWQCsog&amp;sig2=w5L6Fy8mZ4WkYOBqJSWKMA&amp;bvm=bv.44158598,d.Yms">153分钟学会r(r常见问题解答)</a><br/>
+菜鸟必备，适合入门不久后有一定使用经验时查阅。</li>
+</ul>
+
+<p>读完这些，就可以进阶读<a href="http://xccds1977.blogspot.de/2013/02/r.html">这里</a>推荐的书了。</p>
+
+<p>正如第 00 篇所说，这个信息时代，书不是太少，而是太多。菜鸟入门的话，空读多少本关于 <strong>R</strong> 的书，也不如拿几个例子和代码来实际操作一下更有效。经常用 <strong>R</strong> 来工作和消遣，也许会很慢，不过，享受乐趣的过程是越慢越好。携 <strong>R</strong> 之手，与 <strong>R</strong> 偕老，终究你会爱上她的。</p>
+
+<p>因为，在 <strong>R</strong> 的世界里，只有想不到，没有做不到。</p>
+
+<p>( <em>全文完</em> )</p>
+
+</body>
+
+</html>
+
